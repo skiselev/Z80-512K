@@ -4,6 +4,8 @@ Z80 CPU and Memory Module
 ## Introduction
 Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes.
 
+![Z80-512K Assembled Board](images/Z80-512K-Assembled_Board.jpg)
+
 ## Specifications
 * Processor: Zilog Z80 CPU (CMOS version - Z84C00)
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM, Zeta SBC V2 compatible memory pager
