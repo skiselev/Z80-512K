@@ -20,9 +20,9 @@ Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW f
 
 ### Schematic and PCB Layout
 
-[Schematic - Version 1.0](KiCad/Z80-512K-Schematic-1.1.pdf)
+[Schematic - Version 1.1](KiCad/Z80-512K-Schematic-1.1.pdf)
 
-[PCB Layout - Version 1.0](KiCad/Z80-512K-Board-1.1.pdf)
+[PCB Layout - Version 1.1](KiCad/Z80-512K-Board-1.1.pdf)
 
 ### Input/Output Ports
 The following I/O ports are implemented in the CPLD
