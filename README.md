@@ -20,52 +20,52 @@ Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW f
 
 ### Schematic and PCB Layout
 
-[Schematic - Version 1.0](KiCad/Z80-512K-Schematic-1.0.pdf)
+[Schematic - Version 1.0](KiCad/Z80-512K-Schematic-1.1.pdf)
 
-[PCB Layout - Version 1.0](KiCad/Z80-512K-Board-1.0.pdf)
+[PCB Layout - Version 1.0](KiCad/Z80-512K-Board-1.1.pdf)
 
 ### Input/Output Ports
-The following I/O ports are implemented in the CPLD. Note that all ports are read-only.
+The following I/O ports are implemented in the CPLD
 
-* 6Ch - DIVISOR - UART Clock Divisor. This register defines the ratio to divide the CPU clock (7.3728 MHz) by to produce the UART clock
-  * Bit 0: Divide by 3
-    * 0 = Disable divide by three
-    * 1 = Enable divide by three
-  * Bit 1: Divide by 2
+* 6Dh - CONFIG - Read/Write: UART clock divisor and watchdog configuration
+
+Bits 0-4 define the ratio the 7.3728 CPU clock (CLK1) is divided by to produce UART clock (CLK2)
+  * Bit 0: Divide by 2
     * O = Disable divide by two
     * 1 = Enable divide by two
-  * Bit 2: Divide by 4
+  * Bit 1: Divide by 4
     * 0 = Disable divide by four
     * 1 = Enable divide by four
-  * Bit 3: Divide by 16
+  * Bit 2: Divide by 16
     * 0 = Disable divide by sixteen
     * 1 = Enable divide by sixteen
-  * Note: Bits 0-3 are reset to '0' on power-on or reset, so that the UART divide ratio is set to 1
+  * Bit 3: Divide by 256
+    * 0 = Disable divide by 256
+    * 1 = Enable divide by 256
+  * Bit 4:
+    * 0 = Disable divide by three
+    * 1 = Enable divide by three
+  * Note: Bits 0-4 are reset to '0' on power-on or reset, so that the divide ratio is set to 1 and the CLK2 is 7.3728 MHz
 
-* 6Dh - WDOG_ENA - Enable watchdog
-  * Bit 0:
+Bit 5 enables or disables the watchdog and controls the generation of watchdog (WDOG) signal. On the board the WDOG signal is connected to the CPU supervisor IC U5 ADM693A. The CPU supervisor will reset the board if WDOG signal is not pulsed within 1.6 seconds.
+When watchdog is disabled, the /M1 signal is routed to WDOG signal, so that it is pulsed on every instruction fetch. When watchdog is enabled, the WDOG signal should be pulsed by writting to WDOG register, port 6Fh (see below) in intervals of less than 1.6 seconds.
+
+  * Bit 5:
     * 0 = Disable watchdog
     * 1 = Enable watchdog
-  * Note: Bit 0 is reset to '0' on power-on or reset, so that watchdog is disabled
-  * Note: When watchdog is disabled, the /M1 signal is routed to WDOG signal, so that it is pulsed on every instruction fetch. When watchdog is enabled, the WDOG signal should be pulsed by writting to port 6Fh (see below) in intervals of less than 1.6 seconds.
+  * Note: Bit 5 is reset to '0' on power-on or reset, so that watchdog is disabled
 
-* 6Eh - LED - User (CPU) LED Control
-  * Bit 0:
-    * 0 = Turn on LED
-    * 1 = Turn off LED
-  * Note: Bit 0 is reset to '0' on power-on or reset, so that the LED is turned on
-
-* 6Fh - WDOG - Watchdog
+* 6Fh - WDOG - Write-only: Watchdog
   * Any write to this port pulses the WDOG signal, which resets the watchdog in the CPU supervisor U5
 
-* 78h-7Bh - Memory page select registers
+* 78h-7Bh - MPGSEL - Write-only: Memory page select registers
   * 78h - MPGSEL_0 - Page select register for bank #0 (0000h - 3FFFh)
   * 79h - MPGSEL_1 - Page select register for bank #1 (4000h - 7FFFh)
   * 7Ah - MPGSEL_2 - Page select register for bank #2 (8000h - 0BFFFh)
   * 7Bh - MPGSEL_3 - Page select register for bank #3 (0C000h - 0FFFFh)
   * Note: These registers implemented as 6-bit registers
 
-* 7Ch - MPGENA - Enable memory paging
+* 7Ch - MPGENA - Write-only: Enable memory paging
   * Bit 0:
     * 0 = Disable memory paging (default after reset). When memory paging is disabled the memory page 0 (lower 16 KiB of the Flash ROM) is mapped to all banks.
     * 1 = Enable memory paging. Make sure that memory page select registers are configured properly before enabling paging.
@@ -81,7 +81,7 @@ Connect 3V battery for SRAM backup to this connector.
 
 Pin | Signal Name | Description
 --- | ----------- | -----------
-1  	| VBAT        | Positive terminal - +3V
+1   | VBAT        | Positive terminal - +3V
 2   | GND         | Negative terminal - ground
 
 #### J2 - JTAG - CPLD
@@ -116,9 +116,9 @@ J3-15 | A1          | Address A1; Output                      |       |         
 J3-16 | A0          | Address A0; Output                      |       |             |
 J3-17 | GND         | Ground                                  | J4-1  | GND         | Ground
 J3-18 | VCC         | Power Supply - +5V                      | J4-2  | VCC         | Power Supply - +5V
-J3-19 | /M1         | Machine Cycle One; Output               | J4-3  | /RFSH | DRAM refresh; Output
+J3-19 | /M1         | Machine Cycle One; Output               | J4-3  | /RFSH       | DRAM refresh; Output
 J3-20 | /RESET      | Reset; Output                           | J4-4  | N/C         | Not connected
-J3-21 | CPU_CLK     | CPU Clock; Output                       | J4-5  | UART_CLK    | UART Clock (programmable); Output
+J3-21 | CLK1        | CPU Clock; Output                       | J4-5  | CLK2        | UART Clock (programmable); Output
 J3-22 | /INT        | Interrupt; Input                        | J4-6  | /BUSACK     | DMA Bus Acknowledge; Output
 J3-23 | /MREQ       | Memory Request; Output                  | J4-8  | /HALT       | Halt; Output
 J3-24 | /WR         | Write Request; Output                   | J4-9  | /WAIT       | Wait; Input
@@ -140,7 +140,7 @@ J3-39 | USR3        | User Pin 3; Not connected               |       |         
 
 ### Bill of Materials
 
-#### Version 1.0
+#### Version 1.1
 
 [Z80-512K project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=53dc7b1011) - View and order all components except of the PCB.
 
@@ -148,25 +148,22 @@ J3-39 | USR3        | User Pin 3; Not connected               |       |         
 
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
-PCB                |           | Z80-512K PCB - Version 1.0                  | 1        | Refer to the [RetroBrew Computers Board Inventory](https://www.retrobrewcomputers.org/doku.php?id=boardinventory#minimal_8085_z80_single_board_computer) page for ordering information, or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
+PCB                |           | Z80-512K PCB - Version 1.1                  | 1        | Refer to the [RetroBrew Computers Board Inventory](https://www.retrobrewcomputers.org/doku.php?id=boardinventory#minimal_8085_z80_single_board_computer) page for ordering information, or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
 Integrated Circuit | U1        | Z84C00xxPEG - Z80 CPU, CMOS, 40 pin DIP     | 1        | Mouser [692-Z84C0010PEG](https://www.mouser.com/ProductDetail/692-Z84C0010PEG/)
 Integrated Circuit | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP  | 1        | Mouser [804-39SF0407CPHE](https://www.mouser.com/ProductDetail/804-39SF0407CPHE/)
 Integrated Circuit | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP         | 1        | Mouser [913-AS6C4008-55PCN](https://www.mouser.com/ProductDetail/913-AS6C4008-55PCN/)
-Integrated Circuit | U4        | ATF1504AS - CPLD, 64 macrocells, 44 pin PLCC| 1        | Mouser [556-AF1504AS10JU44](https://www.mouser.com/ProductDetail/556-AF1504AS10JU44/); Possible alternative: EPM7064SLC44-10
+Integrated Circuit | U4        | ATF1504AS - CPLD, 64 macrocells, 44 pin PLCC| 1        | Mouser [556-AF1504AS10JU44](https://www.mouser.com/ProductDetail/556-AF1504AS10JU44/); Possible alternative: Altera EPM7064SLC44-10
 Integrated Circuit | U5        | ADM693A - Microprocessor Supervisory Circuit| 1        | Mouser [584-ADM693ANZ](https://www.mouser.com/ProductDetail/584-ADM693ANZ/); Possible alternatives: MAX693, LTC693, ADM691, MAX691, LTC691, ADM695, MAX695, LTC965, LTC1235
 Oscillator         | X1        | 7.3728 MHz, CMOS oscillator, half can       | 1        | Mouser [774-MXO45HS-3C-7.3](https://www.mouser.com/ProductDetail/774-MXO45HS-3C-7.3/)
-LED                | D1        | LED indicator, 3 mm, green                  | 1        | Mouser [710-151033GS03000](https://www.mouser.com/ProductDetail/710-151033GS03000/)
-LED                | D2        | LED indicator, 3 mm, blue                   | 1        | Mouser [710-151033BS03000](https://www.mouser.com/ProductDetail/710-151033BS03000/)
 Connector          | J1        | 2 pin header with friction lock             | 1        | Mouser [571-6404562](https://www.mouser.com/ProductDetail/571-6404562/)
 Pin Header         | J2        | 2x5 pin header, 2.54 mm pitch, vertical     | 1        | Mouser [649-77313-118-10LF](https://www.mouser.com/ProductDetail/649-77313-118-10LF/); Optional - JTAG header
 Pin Header         | J3, J4    | 2x40 pin header, 2.54 mm pitch, right angle | 1        | Mouser [517-5121TG](https://www.mouser.com/ProductDetail/517-5121TG/)
-Capacitor          | C1 - C6   | 0.1 uF, 50V, MLCC, 5 mm pitch               | 6        | Mouser [594-K104K15X7RF53H5](https://www.mouser.com/ProductDetail/594-K104K15X7RF53H5/)
-Capacitor          | C7        | 10 uF, 25V, MLCC, 5 mm pitch                | 1        | Mouser [810-FG28X5R1E106MR06](https://www.mouser.com/ProductDetail/810-FG28X5R1E106MR06/)
+Capacitor          | C1 - C7   | 0.1 uF, 50V, MLCC, 5 mm pitch               | 7        | Mouser [594-K104K15X7RF53H5](https://www.mouser.com/ProductDetail/594-K104K15X7RF53H5/)
+Capacitor          | C7        | 47 uF, 25V, Electrolytic, 5 mm diameter, 2 mm pitch| 1 | Mouser [80-ESY476M025AC3EA](https://www.mouser.com/ProductDetail/80-ESY476M025AC3EA)
 Resistor Array     | RN1       | 4.7 kohm, bussed, 9 pin SIP                 | 1        | Mouser [652-4609X-AP1-472LF](https://www.mouser.com/ProductDetail/652-4609X-AP1-472LF/)
 Resistor Array     | RN2       | 4.7 kohm, bussed, 6 pin SIP                 | 1        | Mouser [652-4606X-AP1-472LF](https://www.mouser.com/ProductDetail/652-4606X-AP1-472LF/)
-Resistor           | R1, R2    | 1 kohm, axial                               | 2        | Mouser [603-MFR-25FRF521K](https://www.mouser.com/ProductDetail/603-MFR-25FRF521K/)
-Resistor           | R3 - R7   | 10 kohm, 1% tolerance, axial                | 5        | Mouser [603-MFR-25FRF5210K](https://www.mouser.com/ProductDetail/603-MFR-25FRF5210K/)
-Resistor           | R8        | 29.4 kohm, 1% tolerance, axial              | 1        | Mouser [603-MFR-25FBF52-29K4](https://www.mouser.com/ProductDetail/603-MFR-25FBF52-29K4/)
+Resistor           | R1 - R5   | 10 kohm, 1% tolerance, axial                | 5        | Mouser [603-MFR-25FRF5210K](https://www.mouser.com/ProductDetail/603-MFR-25FRF5210K/)
+Resistor           | R6        | 29.4 kohm, 1% tolerance, axial              | 1        | Mouser [603-MFR-25FBF52-29K4](https://www.mouser.com/ProductDetail/603-MFR-25FBF52-29K4/)
 Trimmer Resistor   | RV1       | 2 kohm, through hole                        | 1        | Mouser [652-3362W-1-202LF](https://www.mouser.com/ProductDetail/652-3362W-1-202LF/)
 IC Socket          | U1        | 40 pin DIP                                  | 1        | Mouser [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP/)
 IC Socket          | U2, U3    | 32 pin DIP                                  | 2        | Mouser [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP/)

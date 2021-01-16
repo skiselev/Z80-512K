@@ -1,4 +1,4 @@
-update=1/1/2021 6:43:19 PM
+update=1/15/2021 2:08:02 PM
 version=1
 last_client=kicad
 [general]
@@ -15,7 +15,7 @@ LibDir=
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=Z80_CPU_Memory.net
+LastNetListRead=Z80-512K.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
@@ -29,6 +29,12 @@ MinMicroViaDiameter=0.2
 MinMicroViaDrill=0.09999999999999999
 MinHoleToHole=0.25
 TrackWidth1=0.2
+TrackWidth2=0.25
+TrackWidth3=0.3
+TrackWidth4=0.4
+TrackWidth5=0.7
+TrackWidth6=0.8
+TrackWidth7=1.5
 ViaDiameter1=0.6
 ViaDrill1=0.3
 dPairWidth1=0.2
@@ -54,10 +60,10 @@ OthersTextSizeH=1
 OthersTextSizeThickness=0.15
 OthersTextItalic=0
 OthersTextUpright=1
-SolderMaskClearance=0.051
-SolderMaskMinWidth=0.25
+SolderMaskClearance=0
+SolderMaskMinWidth=0
 SolderPasteClearance=0
-SolderPasteRatio=0
+SolderPasteRatio=-0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
 Type=0
