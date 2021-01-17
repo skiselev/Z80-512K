@@ -144,7 +144,7 @@ J3-39 | USR3        | User Pin 3; Not connected               |       |         
 
 [Z80-512K project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=53dc7b1011) - View and order all components except of the PCB.
 
-[Z80-512K project on OSH Park](https://oshpark.com/shared_projects/XXXXXXXX) - View and order the PCB.
+[Z80-512K project on OSH Park](https://oshpark.com/shared_projects/RaUAPFeg) - View and order the PCB.
 
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
