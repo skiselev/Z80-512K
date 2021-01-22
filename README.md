@@ -193,7 +193,7 @@ Oscillator Socket  | X1        | 4 pin DIP, Half Can                         | 1
 
 ### CPLD Fuse Map
 
-Z80-512K uses Atmel ATF1504AS or Intel*/Altera* EPM7064STC44 CPLD (U4) CPLD for memory pager and varous other logic. [Atmel CPLD fuse map](CPLD/output_files/Z80_512K.jed), [Altera CPLD fuse map](CPLD/output_files/Z80_512K.pof), and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use [ATMISP](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) software to program Atmel CPLD. Use free [Altera Quartus II 13.0sp1 Web Edition](https://fpgasoftware.intel.com/13.0sp1/) to program Atmel CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
+Z80-512K uses Atmel ATF1504AS or Intel*/Altera* EPM7064STC44 CPLD (U4) CPLD for memory pager and varous other logic. [Atmel CPLD fuse map](CPLD/output_files/Z80_512K.jed), [Altera CPLD fuse map](CPLD/output_files/Z80_512K.pof), and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use [ATMISP](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) software to program Atmel CPLD. Use free [Altera Quartus II 13.0sp1 Web Edition](https://fpgasoftware.intel.com/13.0sp1/) to program Altera CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
 
 ## Red Tape
 
