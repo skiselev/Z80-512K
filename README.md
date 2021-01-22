@@ -25,52 +25,74 @@ Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW f
 [PCB Layout - Version 1.1](KiCad/Z80-512K-Board-1.1.pdf)
 
 ### Input/Output Ports
+Z80-512K uses an Atmel ATF1504AS CPLD (complex programmable logic device) to implement Zeta SBC V2 compatible memory pager, watchdog control, and UART clock divider
+These functions are configured using registers that are accessible using I/O ports. Upon reset, the configuration registers are set to values that result in an RC2014 compatible configuration, so that RomWBW RCZ80_std.rom image can be used without any modifications.
+
+
 The following I/O ports are implemented in the CPLD
 
-* 6Dh - CONFIG - Read/Write: UART clock divisor and watchdog configuration
+#### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
 
-Bits 0-4 define the ratio the 7.3728 CPU clock (CLK1) is divided by to produce UART clock (CLK2)
-  * Bit 0: Divide by 2
-    * O = Disable divide by two
-    * 1 = Enable divide by two
-  * Bit 1: Divide by 4
-    * 0 = Disable divide by four
-    * 1 = Enable divide by four
-  * Bit 2: Divide by 16
-    * 0 = Disable divide by sixteen
-    * 1 = Enable divide by sixteen
-  * Bit 3: Divide by 256
-    * 0 = Disable divide by 256
-    * 1 = Enable divide by 256
-  * Bit 4:
-    * 0 = Disable divide by three
-    * 1 = Enable divide by three
-  * Note: Bits 0-4 are reset to '0' on power-on or reset, so that the divide ratio is set to 1 and the CLK2 is 7.3728 MHz
+Bits 0-4 define the ratio the 7.3728 MHz CPU clock (CLK1) is divided by to produce UART clock (CLK2).
+The output clock can be calculated using **3<sup>m</sup> * 2<sup>n</sup>** formula, where m = bit 4 (either 0 or 1), and n = bits 3-0 (from 0 to 15)
+
+Port | Bit # | Function                | 0                     | 1
+-----|-------|-------------------------|-----------------------|----------------------
+0x6D | 0     | Divide CPU clock by 2   | Disable divide by 2   | Enable divide by 2
+0x6D | 1     | Divide CPU clock by 4   | Disable divide by 4   | Enable divide by 4
+0x6D | 2     | Divide CPU clock by 16  | Disable divide by 16  | Enable divide by 16
+0x6D | 3     | Divide CPU clock by 256 | Disable divide by 256 | Enable divide by 256
+0x6D | 4     | Divide CPU clock by 3   | Disable divide by 3   | Enable divide by 3
+
+* Note: Bits 0-4 are reset to '0' on power-on or reset, so that the divide ratio is set to 1 and the CLK2 is 7.3728 MHz
 
 Bit 5 enables or disables the watchdog and controls the generation of watchdog (WDOG) signal. On the board the WDOG signal is connected to the CPU supervisor IC U5 ADM693A. The CPU supervisor will reset the board if WDOG signal is not pulsed within 1.6 seconds.
 When watchdog is disabled, the /M1 signal is routed to WDOG signal, so that it is pulsed on every instruction fetch. When watchdog is enabled, the WDOG signal should be pulsed by writting to WDOG register, port 6Fh (see below) in intervals of less than 1.6 seconds.
 
-  * Bit 5:
-    * 0 = Disable watchdog
-    * 1 = Enable watchdog
-  * Note: Bit 5 is reset to '0' on power-on or reset, so that watchdog is disabled
+Port | Bit # | Function                | 0                     | 1
+-----|-------|-------------------------|-----------------------|----------------------
+0x6D | 5     | Watchdog enable         | Disable watchdog      | Enable watchdog
 
-* 6Fh - WDOG - Write-only: Watchdog
-  * Any write to this port pulses the WDOG signal, which resets the watchdog in the CPU supervisor U5
+* Note: Bit 5 is reset to '0' on power-on or reset, so that watchdog is disabled
 
-* 78h-7Bh - MPGSEL - Write-only: Memory page select registers
-  * 78h - MPGSEL_0 - Page select register for bank #0 (0000h - 3FFFh)
-  * 79h - MPGSEL_1 - Page select register for bank #1 (4000h - 7FFFh)
-  * 7Ah - MPGSEL_2 - Page select register for bank #2 (8000h - 0BFFFh)
-  * 7Bh - MPGSEL_3 - Page select register for bank #3 (0C000h - 0FFFFh)
-  * Note: These registers implemented as 6-bit registers
+Port | Bit # | Function                                         | Value
+-----|-------|--------------------------------------------------|-----------------------
+0x6D | 7-6   | Not implemented                                  | Should be set to 0
 
-* 7Ch - MPGENA - Write-only: Enable memory paging
-  * Bit 0:
-    * 0 = Disable memory paging (default after reset). When memory paging is disabled the memory page 0 (lower 16 KiB of the Flash ROM) is mapped to all banks.
-    * 1 = Enable memory paging. Make sure that memory page select registers are configured properly before enabling paging.
-  * Bits 1-7 - unused
-  * Note: Bit 0 is reset to '0' on power-on or reset
+#### 0x6F - WDOG - Write-only: Reset watchdog
+
+Any write to this port pulses the WDOG signal, which resets the watchdog in the CPU supervisor U5
+
+Port | Bit # | Function                | Value
+-----|-------|-------------------------|---------------------------------------------
+0x6F | N/A   | WDOG - Reset watchdog   | Any write to this port resets the watchdog
+
+
+#### 0x78-0x7B - MPGSEL - Write-only: Memory page select registers
+
+Port | Bit # | Function                                         | Value
+-----|-------|--------------------------------------------------|-----------------------
+0x78 | 5-0   | MPGSEL_0 - Page number for bank #0 0x0000-0x3FFF | 0-31 - Page number
+0x78 | 7-6   | Not implemented                                  | Should be set to 0
+0x79 | 5-0   | MPGSEL_1 - Page number for bank #1 0x4000-0x7FFF | 0-31 - Page number
+0x79 | 7-6   | Not implemented                                  | Should be set to 0
+0x7A | 5-0   | MPGSEL_3 - Page number for bank #2 0x8000-0xBFFF | 0-31 - Page number
+0x7A | 7-6   | Not implemented                                  | Should be set to 0
+0x7B | 5-0   | MPGSEL_4 - Page number for bank #3 0xC000-0xFFFF | 0-31 - Page number
+0x7B | 7-6   | Not implemented                                  | Should be set to 0
+
+#### 0x7Ch - MPGENA - Write-only: Enable memory paging
+
+Port | Bit # | Function                | 0                     | 1
+-----|-------|-------------------------|-----------------------|----------------------
+0x7C | 0     | Memory paging enable    | Disable memory paging | Enable memory paging
+0x7C | 7-1   | Not implemented         | Should be set to 0    | 
+
+* Note: The register is reset to '0' on power-on or reset. When memory paging is disabled the memory page 0 (lower 16 KiB of the Flash ROM) is mapped to all banks.
+
+Port | Bit # | Function                                         | Value
+-----|-------|--------------------------------------------------|-----------------------
+0x7C | 7-1   | Not implemented                                  | Should be set to 0
 
 ### Connectors
 
