@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------
--- d_ff_rst.vhd - D flip-flop with reset
+-- divide_by_2.vhd - Divide by 2 frequency divider
 --------------------------------------------------------------------------
 -- Compiles with Quartus II 13.0sp1
 --
@@ -23,23 +23,19 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity d_ff_rst is
-   port(
-      clk 	: in std_logic;							-- Clock / write enable
-      rst_n	: in std_logic;							-- Reset (active low)
-      d 		: in std_logic;							-- Flip-flop input
-		q		: out std_logic							-- Flop-flop output
-   );
-end entity d_ff_rst;
+entity divide_by_2 is
+	port(
+		clk_in	: in std_logic;		-- Clock input
+		clk_out	: buffer std_logic	-- Clock output
+	);
+end entity divide_by_2;
  
-architecture behavioral of d_ff_rst is
+architecture behavioral of divide_by_2 is
 begin
-   process (clk, rst_n) is
+   process (clk_in) is
    begin
-		if rst_n = '0' then
-			q <= '0';										-- Reset if rst_n is active
-		elsif rising_edge(clk) then  
-         q <= d;											-- Write data on the rising edge of clk
+		if rising_edge(clk_in) then
+			clk_out <= not clk_out;		-- Invert the output each rising edge of the clock
 		end if;
 	end process;
 end architecture behavioral;

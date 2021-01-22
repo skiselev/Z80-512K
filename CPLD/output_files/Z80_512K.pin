@@ -61,47 +61,47 @@ CHIP  "Z80_512K"  ASSIGNED TO AN: EPM7064SLC44-10
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-RSTn                         : 1         : input  : TTL               :         :           : Y              
-MREQ                         : 2         : input  : TTL               :         :           : Y              
+rst_n                        : 1         : input  : TTL               :         :           : Y              
+mreq_n                       : 2         : input  : TTL               :         :           : Y              
 VCC                          : 3         : power  :                   :         :           :                
-RAM_CSn                      : 4         : output : TTL               :         :           : Y              
-ROM_CSn                      : 5         : output : TTL               :         :           : Y              
-A[2]                         : 6         : input  : TTL               :         :           : Y              
+ram_cs_n                     : 4         : output : TTL               :         :           : Y              
+rom_cs_n                     : 5         : output : TTL               :         :           : Y              
+a[2]                         : 6         : input  : TTL               :         :           : Y              
 TDI                          : 7         : input  : TTL               :         :           : N              
-A[3]                         : 8         : input  : TTL               :         :           : Y              
-A[4]                         : 9         : input  : TTL               :         :           : Y              
+a[3]                         : 8         : input  : TTL               :         :           : Y              
+a[4]                         : 9         : input  : TTL               :         :           : Y              
 GND                          : 10        : gnd    :                   :         :           :                
-A[5]                         : 11        : input  : TTL               :         :           : Y              
-A[6]                         : 12        : input  : TTL               :         :           : Y              
+a[5]                         : 11        : input  : TTL               :         :           : Y              
+a[6]                         : 12        : input  : TTL               :         :           : Y              
 TMS                          : 13        : input  : TTL               :         :           : N              
-A[7]                         : 14        : input  : TTL               :         :           : Y              
+a[7]                         : 14        : input  : TTL               :         :           : Y              
 VCC                          : 15        : power  :                   :         :           :                
-D[0]                         : 16        : input  : TTL               :         :           : Y              
-D[1]                         : 17        : input  : TTL               :         :           : Y              
-D[2]                         : 18        : input  : TTL               :         :           : Y              
-MA[14]                       : 19        : output : TTL               :         :           : Y              
-MA[15]                       : 20        : output : TTL               :         :           : Y              
-MA[16]                       : 21        : output : TTL               :         :           : Y              
+d[0]                         : 16        : bidir  : TTL               :         :           : Y              
+d[1]                         : 17        : bidir  : TTL               :         :           : Y              
+d[2]                         : 18        : bidir  : TTL               :         :           : Y              
+ma[14]                       : 19        : output : TTL               :         :           : Y              
+ma[15]                       : 20        : output : TTL               :         :           : Y              
+ma[16]                       : 21        : output : TTL               :         :           : Y              
 GND                          : 22        : gnd    :                   :         :           :                
 VCC                          : 23        : power  :                   :         :           :                
-D[3]                         : 24        : input  : TTL               :         :           : Y              
-D[4]                         : 25        : input  : TTL               :         :           : Y              
-D[5]                         : 26        : input  : TTL               :         :           : Y              
-MA[17]                       : 27        : output : TTL               :         :           : Y              
-MA[18]                       : 28        : output : TTL               :         :           : Y              
-A[0]                         : 29        : input  : TTL               :         :           : Y              
+d[3]                         : 24        : bidir  : TTL               :         :           : Y              
+d[4]                         : 25        : bidir  : TTL               :         :           : Y              
+d[5]                         : 26        : bidir  : TTL               :         :           : Y              
+ma[17]                       : 27        : output : TTL               :         :           : Y              
+ma[18]                       : 28        : output : TTL               :         :           : Y              
+a[0]                         : 29        : input  : TTL               :         :           : Y              
 GND                          : 30        : gnd    :                   :         :           :                
-A[1]                         : 31        : input  : TTL               :         :           : Y              
+a[1]                         : 31        : input  : TTL               :         :           : Y              
 TCK                          : 32        : input  : TTL               :         :           : N              
-WDOG_WR                      : 33        : output : TTL               :         :           : Y              
-A_HI[15]                     : 34        : input  : TTL               :         :           : Y              
+watchdog                     : 33        : output : TTL               :         :           : Y              
+a_hi[15]                     : 34        : input  : TTL               :         :           : Y              
 VCC                          : 35        : power  :                   :         :           :                
-LED_OUT                      : 36        : output : TTL               :         :           : Y              
-A_HI[14]                     : 37        : input  : TTL               :         :           : Y              
+rd_n                         : 36        : input  : TTL               :         :           : Y              
+a_hi[14]                     : 37        : input  : TTL               :         :           : Y              
 TDO                          : 38        : output : TTL               :         :           : N              
-IORQ                         : 39        : input  : TTL               :         :           : Y              
-WR                           : 40        : input  : TTL               :         :           : Y              
-UART_CLK                     : 41        : output : TTL               :         :           : Y              
+iorq_n                       : 39        : input  : TTL               :         :           : Y              
+wr_n                         : 40        : input  : TTL               :         :           : Y              
+uart_clk                     : 41        : output : TTL               :         :           : Y              
 GND                          : 42        : gnd    :                   :         :           :                
-CPU_CLK                      : 43        : input  : TTL               :         :           : Y              
-M1                           : 44        : input  : TTL               :         :           : Y              
+cpu_clk                      : 43        : input  : TTL               :         :           : Y              
+m1_n                         : 44        : input  : TTL               :         :           : Y              

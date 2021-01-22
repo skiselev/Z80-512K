@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------
--- d_ff_rst.vhd - D flip-flop with reset
+-- register_6.vhd - 6-bit D flip-flop based register with reset
 --------------------------------------------------------------------------
 -- Compiles with Quartus II 13.0sp1
 --
@@ -23,21 +23,21 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity d_ff_rst is
-   port(
-      clk 	: in std_logic;							-- Clock / write enable
-      rst_n	: in std_logic;							-- Reset (active low)
-      d 		: in std_logic;							-- Flip-flop input
-		q		: out std_logic							-- Flop-flop output
-   );
-end entity d_ff_rst;
+entity register_6 is
+	port(
+		d 		: in std_logic_vector (5 downto 0);	-- Register input data
+		clk	: in std_logic;							-- Clock / write enable
+		rst_n : in std_logic;							-- Reset (active low)
+		q		: out std_logic_vector (5 downto 0)	-- Register output data
+	);
+end entity register_6;
  
-architecture behavioral of d_ff_rst is
+architecture behavioral of register_6 is
 begin
    process (clk, rst_n) is
    begin
 		if rst_n = '0' then
-			q <= '0';										-- Reset if rst_n is active
+			q <= "000000";									-- Reset if rst_n is active
 		elsif rising_edge(clk) then  
          q <= d;											-- Write data on the rising edge of clk
 		end if;
