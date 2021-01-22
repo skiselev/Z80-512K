@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------
 -- uart_freq_divider.vhd - Frequency divider
 --		Divides input freqency by 3^m*2^n, where m is [0, 1] and n = [0, 15]
---		The 5-bit divisor value is encodes as |m0|n3|n2|n1|n0|
+--		The 5-bit divisor value is encoded as |m0|n3|n2|n1|n0|
 --------------------------------------------------------------------------
 -- Compiles with Quartus II 13.0sp1
 --
