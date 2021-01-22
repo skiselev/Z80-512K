@@ -33,9 +33,9 @@ The following I/O ports are implemented in the CPLD:
 #### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
 
 Bits 0-4 define the ratio the 7.3728 MHz CPU clock (CLK1) is divided by to produce UART clock (CLK2).
-The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where m = bit 4 (either 0 or 1), and n = bits 3-0 (from 0 to 15)
+The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where **m** is bit 4 of 0x6D (0 or 1), and **n** are bits 3-0 of 0x6D (0 to 15)
 
-Port | Bit # | Function                | 0                     | 1
+Port | Bit # | Function                | Value = 0             | Value = 1
 -----|-------|-------------------------|-----------------------|----------------------
 0x6D | 0     | Divide CPU clock by 2   | Disable divide by 2   | Enable divide by 2
 0x6D | 1     | Divide CPU clock by 4   | Disable divide by 4   | Enable divide by 4
@@ -43,12 +43,12 @@ Port | Bit # | Function                | 0                     | 1
 0x6D | 3     | Divide CPU clock by 256 | Disable divide by 256 | Enable divide by 256
 0x6D | 4     | Divide CPU clock by 3   | Disable divide by 3   | Enable divide by 3
 
-* Note: Bits 0-4 are reset to '0' on power-on or reset, so that the divide ratio is set to 1 and the CLK2 is 7.3728 MHz
+* Note: Bits 0-4 are reset to '0' on power-on or reset, so that the divide ratio is set to 1 and the CLK2 frequency is 7.3728 MHz
 
 Bit 5 enables or disables the watchdog and controls the generation of watchdog (WDOG) signal. On the board the WDOG signal is connected to the CPU supervisor IC U5 ADM693A. The CPU supervisor will reset the board if WDOG signal is not pulsed within 1.6 seconds.
-When watchdog is disabled, the /M1 signal is routed to WDOG signal, so that it is pulsed on every instruction fetch. When watchdog is enabled, the WDOG signal should be pulsed by writting to WDOG register, port 6Fh (see below) in intervals of less than 1.6 seconds.
+When watchdog is disabled, the /M1 signal is routed to WDOG signal, so that it is pulsed on every instruction fetch. When watchdog is enabled, the WDOG signal should be pulsed by writting to WDOG register, port 0x6F (see below) in intervals of less than 1.6 seconds.
 
-Port | Bit # | Function                | 0                     | 1
+Port | Bit # | Function                | Value = 0             | Value = 1
 -----|-------|-------------------------|-----------------------|----------------------
 0x6D | 5     | Watchdog enable         | Disable watchdog      | Enable watchdog
 
@@ -82,7 +82,7 @@ Port | Bit # | Function                                         | Value
 
 #### 0x7Ch - MPGENA - Write-only: Enable memory paging
 
-Port | Bit # | Function                | 0                     | 1
+Port | Bit # | Function                | Value = 0             | Value = 1
 -----|-------|-------------------------|-----------------------|----------------------
 0x7C | 0     | Memory paging enable    | Disable memory paging | Enable memory paging
 
@@ -193,7 +193,7 @@ Oscillator Socket  | X1        | 4 pin DIP, Half Can                         | 1
 
 ### CPLD Fuse Map
 
-Z80-512K uses Atmel ATF1504AS or Intel/Altera EPM7064STC44 CPLD (U4) CPLD for memory pager and varous other logic. [Atmel CPLD fuse map](CPLD/output_files/Z80_512K.jed), [Altera CPLD fuse map](CPLD/output_files/Z80_512K.pof), and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use [ATMISP](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) software to program Atmel CPLD. Use free [Altera Quartus II 13.0sp1 Web Edition](https://fpgasoftware.intel.com/13.0sp1/) to program Atmel CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
+Z80-512K uses Atmel ATF1504AS or Intel*/Altera* EPM7064STC44 CPLD (U4) CPLD for memory pager and varous other logic. [Atmel CPLD fuse map](CPLD/output_files/Z80_512K.jed), [Altera CPLD fuse map](CPLD/output_files/Z80_512K.pof), and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use [ATMISP](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) software to program Atmel CPLD. Use free [Altera Quartus II 13.0sp1 Web Edition](https://fpgasoftware.intel.com/13.0sp1/) to program Atmel CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
 
 ## Red Tape
 
