@@ -2,12 +2,12 @@
 Z80 CPU and Memory Module
 
 ## Introduction
-Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes.
+Z80-512K is an RC2014*-compatible CPU and memory module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes.
 
 ![Z80-512K Assembled Board](images/Z80-512K-Assembled_Board.jpg)
 
 ## Specifications
-* Processor: Zilog Z80 CPU (CMOS version - Z84C00)
+* Processor: Zilog* Z80 CPU (CMOS version - Z84C00)
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM, Zeta SBC V2 compatible memory pager
 * Bus: RC2014 compatible
 * Microprocessor Supervisor:
@@ -25,7 +25,7 @@ Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW f
 [PCB Layout - Version 1.1](KiCad/Z80-512K-Board-1.1.pdf)
 
 ### Input/Output Ports
-Z80-512K uses an Atmel ATF1504AS CPLD (complex programmable logic device) to implement Zeta SBC V2 compatible memory pager, watchdog control, and UART clock divider.
+Z80-512K uses an Atmel* ATF1504AS CPLD (complex programmable logic device) to implement Zeta SBC V2 compatible memory pager, watchdog control, and UART clock divider.
 These functions are configured using registers that are accessible using I/O ports. Upon reset, the configuration registers are set to values that result in an RC2014 compatible configuration, so that RomWBW RCZ80_std.rom image can be used without any modifications.
 
 The following I/O ports are implemented in the CPLD:
@@ -33,7 +33,7 @@ The following I/O ports are implemented in the CPLD:
 #### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
 
 Bits 0-4 define the ratio the 7.3728 MHz CPU clock (CLK1) is divided by to produce UART clock (CLK2).
-The output clock can be calculated using **3<sup>m</sup> * 2<sup>n</sup>** formula, where m = bit 4 (either 0 or 1), and n = bits 3-0 (from 0 to 15)
+The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where m = bit 4 (either 0 or 1), and n = bits 3-0 (from 0 to 15)
 
 Port | Bit # | Function                | 0                     | 1
 -----|-------|-------------------------|-----------------------|----------------------
@@ -85,9 +85,8 @@ Port | Bit # | Function                                         | Value
 Port | Bit # | Function                | 0                     | 1
 -----|-------|-------------------------|-----------------------|----------------------
 0x7C | 0     | Memory paging enable    | Disable memory paging | Enable memory paging
-0x7C | 7-1   | Not implemented         | Should be set to 0    | 
 
-* Note: The register is reset to '0' on power-on or reset. When memory paging is disabled the memory page 0 (lower 16 KiB of the Flash ROM) is mapped to all banks.
+* Note: The register is reset to '0' on power-on or reset, which disables the memory paging. When memory paging is disabled the memory page 0 (lower 16 KiB of the Flash ROM) is mapped to all banks.
 
 Port | Bit # | Function                                         | Value
 -----|-------|--------------------------------------------------|-----------------------
@@ -196,8 +195,15 @@ Oscillator Socket  | X1        | 4 pin DIP, Half Can                         | 1
 
 Z80-512K uses Atmel ATF1504AS or Intel/Altera EPM7064STC44 CPLD (U4) CPLD for memory pager and varous other logic. [Atmel CPLD fuse map](CPLD/output_files/Z80_512K.jed), [Altera CPLD fuse map](CPLD/output_files/Z80_512K.pof), and the CPLD source code are provided in [CPLD](CPLD) directory of this repository. Use [ATMISP](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) software to program Atmel CPLD. Use free [Altera Quartus II 13.0sp1 Web Edition](https://fpgasoftware.intel.com/13.0sp1/) to program Atmel CPLD. Newer Quartus versions do not support Altera MAX7000 CPLDs.
 
-## Licensing
+## Red Tape
+
+### Licensing
 
 Z80-512K is an open source hardware project. The hardware design itself, including schematic and PCB layout design files are licensed under the strongly-reciprocal variant of [CERN Open Hardware Licence version 2](license-cern_ohl_s_v2.txt). Documentation, including this file, is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](license-cc-by-sa-4.0.txt).
 
 ![CERN-OHL-2.0-S, GPL-3.0, CC-BY-SA-4.0](images/CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg)
+
+### Trademarks
+
+* "RC2014" is a registered trademark of RFC2795 Ltd.
+* Other names and brands may be claimed as the property of others.
