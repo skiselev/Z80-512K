@@ -33,7 +33,7 @@ The following I/O ports are implemented in the CPLD:
 #### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
 
 Bits 0-4 define the ratio the 7.3728 MHz CPU clock (CLK1) is divided by to produce UART clock (CLK2).
-The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where **m** is bit 4 of 0x6D (0 or 1), and **n** are bits 3-0 of 0x6D (0 to 15)
+The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where **m** is bit 4 of **CONFIG** register (0 or 1), and **n** are bits 3-0 of **CONFIG** register (0 to 15)
 
 Port | Bit # | Function                | Value = 0             | Value = 1
 -----|-------|-------------------------|-----------------------|----------------------
