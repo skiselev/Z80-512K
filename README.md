@@ -25,11 +25,10 @@ Z80-512K is an RC2014-compatible CPU and memory module, designed to run RomWBW f
 [PCB Layout - Version 1.1](KiCad/Z80-512K-Board-1.1.pdf)
 
 ### Input/Output Ports
-Z80-512K uses an Atmel ATF1504AS CPLD (complex programmable logic device) to implement Zeta SBC V2 compatible memory pager, watchdog control, and UART clock divider
+Z80-512K uses an Atmel ATF1504AS CPLD (complex programmable logic device) to implement Zeta SBC V2 compatible memory pager, watchdog control, and UART clock divider.
 These functions are configured using registers that are accessible using I/O ports. Upon reset, the configuration registers are set to values that result in an RC2014 compatible configuration, so that RomWBW RCZ80_std.rom image can be used without any modifications.
 
-
-The following I/O ports are implemented in the CPLD
+The following I/O ports are implemented in the CPLD:
 
 #### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
 
