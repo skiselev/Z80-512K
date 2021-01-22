@@ -30,7 +30,7 @@ These functions are configured using registers that are accessible using I/O por
 
 The following I/O ports are implemented in the CPLD:
 
-#### 0x6D - CONFIG - Read/Write: UART clock divisor and watchdog configuration
+#### 0x6D - CONFIG - UART Clock Divisor and Watchdog Configuration (Read/Write)
 
 Bits 0-4 define the ratio the 7.3728 MHz CPU clock (CLK1) is divided by to produce UART clock (CLK2).
 The output clock can be calculated using the following formula: **f<sub>CLK2</sub> (Hz) = 7372800 / (3<sup>m</sup> * 2<sup>n</sup>)**, where **m** is bit 4 of **CONFIG** register (0 or 1), and **n** are bits 3-0 of **CONFIG** register (0 to 15)
@@ -58,7 +58,7 @@ Port | Bit # | Function                                         | Value
 -----|-------|--------------------------------------------------|-----------------------
 0x6D | 7-6   | Not implemented                                  | Should be set to 0
 
-#### 0x6F - WDOG - Write-only: Reset watchdog
+#### 0x6F - WDOG - Reset Watchdog (Write-only)
 
 Any write to this port pulses the WDOG signal, which resets the watchdog in the CPU supervisor U5
 
@@ -67,7 +67,7 @@ Port | Bit # | Function                | Value
 0x6F | N/A   | WDOG - Reset watchdog   | Any write to this port resets the watchdog
 
 
-#### 0x78-0x7B - MPGSEL - Write-only: Memory page select registers
+#### 0x78-0x7B - MPGSEL - Memory Page Select Registers (Write-only)
 
 Port | Bit # | Function                                         | Value
 -----|-------|--------------------------------------------------|-----------------------
@@ -80,7 +80,7 @@ Port | Bit # | Function                                         | Value
 0x7B | 5-0   | MPGSEL_4 - Page number for bank #3 0xC000-0xFFFF | 0-31 - Page number
 0x7B | 7-6   | Not implemented                                  | Should be set to 0
 
-#### 0x7Ch - MPGENA - Write-only: Enable memory paging
+#### 0x7Ch - MPGENA - Enable Memory Paging (Write-only)
 
 Port | Bit # | Function                | Value = 0             | Value = 1
 -----|-------|-------------------------|-----------------------|----------------------
