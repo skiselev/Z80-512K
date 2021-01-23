@@ -25,17 +25,22 @@ use ieee.std_logic_1164.all;
 
 entity divide_by_2 is
 	port(
-		clk_in	: in std_logic;		-- Clock input
-		clk_out	: buffer std_logic	-- Clock output
+		clk			: in std_logic;		-- Clock input
+		carry_in		: in std_logic;		-- Carry input
+		q				: buffer std_logic;	-- Counter output
+		carry_out	: out std_logic		-- Carry output
 	);
 end entity divide_by_2;
  
 architecture behavioral of divide_by_2 is
+	signal d : std_logic;
 begin
-   process (clk_in) is
+	d <= q xor carry_in;
+	carry_out <= q and carry_in;
+   process (clk) is
    begin
-		if rising_edge(clk_in) then
-			clk_out <= not clk_out;		-- Invert the output each rising edge of the clock
+		if rising_edge(clk) then
+			q <= d;
 		end if;
 	end process;
 end architecture behavioral;

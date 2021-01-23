@@ -25,22 +25,22 @@ use ieee.std_logic_1164.all;
 
 entity divide_by_3 is
 	port(
-		clk_in	: in std_logic;		-- Clock input
-		clk_out	: buffer std_logic	-- Clock output
+		clk		: in std_logic;		-- Clock input
+		q			: buffer std_logic	-- Clock output
 	);
 end entity divide_by_3;
  
 architecture behavioral of divide_by_3 is
-	signal ff1_out : std_logic;		-- intermediate flip-flop output
+	signal t : std_logic;			-- intermediate flip-flop output
 begin
-   process (clk_in) is
+   process (clk) is
    begin
-		if rising_edge(clk_in) then
-			clk_out <= ff1_out;			-- Write output of the first flip-flop to the second
-			if ff1_out = '0' and clk_out = '0' then
-				ff1_out <= '1';			-- Set first flip-flop to 1 if outputs of both flip-flops are '0'
+		if rising_edge(clk) then
+			q <= t;						-- Write output of the first flip-flop to the second
+			if t = '0' and q = '0' then
+				t <= '1';				-- Set first flip-flop to 1 if outputs of both flip-flops are '0'
 			else
-				ff1_out <= '0';			-- Otherwise reset the first flip-flop
+				t <= '0';				-- Otherwise reset the first flip-flop
 			end if;
 		end if;
 	end process;
