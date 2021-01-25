@@ -37,8 +37,8 @@ entity z80_512k is
 		mreq_n	: in std_logic;								-- MREQ - memory request signal from Z80 (active low)
 		wr_n		: in std_logic;								-- WR - write signal from Z80 (active low)
 		rd_n		: in std_logic;								-- RD - read signal from Z80 (active low)
-		watchdog	: out std_logic;								-- WDOG - output for resetting the watchdog
-		rst_n		: in std_logic;								-- RESET - reset input, disables memory paging, watchdog
+		wdog_led	: out std_logic;								-- WDOG - output for resetting the watchdog and driving the LED
+ 		rst_n		: in std_logic;								-- RESET - reset input, disables memory paging, watchdog
 																		-- and sets divisor value to '1' (active low)
 		rom_cs_n	: out std_logic;								-- ROM_CS - ROM chip select output (active low)
 		ram_cs_n	: out std_logic;								-- RAM_CS - RAM chip select output (active low)
@@ -52,6 +52,8 @@ entity z80_512k is
 	constant page_ena_addr : std_logic_vector(7 downto 0) := "01111100";
 	-- Watchdog address is 0x6F = 01101111
 	constant watchdog_addr : std_logic_vector(7 downto 0) := "01101111";
+	-- LED address is 0x6E = 01101110
+	constant led_addr : std_logic_vector(7 downto 0) := "01101110";
 	-- Configuration register address is 0x6D = 01101101
 	constant config_reg_addr : std_logic_vector(7 downto 0) := "01101101";
 end z80_512k;
@@ -63,11 +65,16 @@ architecture behavioral of z80_512k is
 	signal page_ena		: std_logic;							-- Page enable register output (1 - paging enabled)
 	signal page_reg_wr	: std_logic;							-- Enable write to page registers
 	signal watchdog_wr	: std_logic;							-- Enable write to watchdog
+	signal watchdog		: std_logic;							-- Watchdog output
+	signal led_wr			: std_logic;							-- Enable write to LED register
+	signal led				: std_logic;							-- LED register output
 	signal config_sel		: std_logic;							-- Select signal for the configuration register
 	signal config_wr		: std_logic;							-- Enable write to the configuration register
 	signal config_rd		: std_logic;							-- Enable read from the configuration register
 	signal config			: std_logic_vector(5 downto 0);	-- Configuration register
 	signal pa				: std_logic_vector(19 downto 14);-- Internal memory page register output
+	signal m1_divide_1_out	: std_logic;
+	signal m1_divide_2_out	: std_logic;
 	-- D flip-flop with reset
 	component d_ff_rst
 		port(
@@ -105,6 +112,14 @@ architecture behavioral of z80_512k is
 			q				: out std_logic_vector (5 downto 0)
 		);
 	end component;
+	component divide_by_2
+		port(
+			carry_in		: in std_logic;
+			clk			: in std_logic;
+			carry_out	: out std_logic;
+			q				: out std_logic
+		);	
+	end component;
 begin
 	-- I/O address decode - generate I/O read and write signals
 	io_wr <= '1' when m1_n = '1' and iorq_n = '0' and wr_n = '0' else '0';
@@ -112,6 +127,7 @@ begin
 	page_reg_wr <= '1' when io_wr = '1' and a(7 downto 2) = page_reg_addr else '0';
 	page_ena_wr <= '1' when io_wr = '1' and a = page_ena_addr else '0';
 	watchdog_wr <= '1' when io_wr = '1' and a = watchdog_addr else '0';
+	led_wr <= '1' when io_wr = '1' and a = led_addr else '0';
 	config_sel <= '1' when a = config_reg_addr else '0';
 	config_wr <= '1' when io_wr = '1' and config_sel = '1' else '0';
 	config_rd <= '1' when io_rd = '1' and config_sel = '1' else '0';
@@ -145,11 +161,40 @@ begin
 			q => page_ena
 		);
 	
+	-- LED register
+	led_ff : d_ff_rst port
+		map(
+			d => d(0),
+			clk => led_wr,
+			rst_n => rst_n,
+			q => led
+		);
+
 	-- Watchdog
-	-- output M1 if watchdog is disable, otherwise pulse watchdog en
-	watchdog <= m1_n when config(5) = '0' else
-					'0' when config(5) = '1' and watchdog_wr = '1' else
-	            '1';
+	
+	-- Divide M1 frequency, otherwise the LED will be too bright
+	m1_divide_1: divide_by_2 port
+		map(
+			carry_in => not m1_n,
+			clk => cpu_clk,
+			carry_out => m1_divide_1_out
+		);
+
+	m1_divide_2: divide_by_2 port
+		map(
+			carry_in => m1_divide_1_out,
+			clk => cpu_clk,
+			carry_out => m1_divide_2_out
+		);
+	
+	-- Output M1 if watchdog is disable, otherwise pulse watchdog on watchdog write
+	watchdog <= m1_divide_2_out when config(5) = '0' else
+					'1' when config(5) = '1' and watchdog_wr = '1' else
+					'0';
+
+
+	-- Watchdog / LED output pin
+	wdog_led <= watchdog xor led;
 
 	-- Page register
 	page_reg : page_reg_4x6 port

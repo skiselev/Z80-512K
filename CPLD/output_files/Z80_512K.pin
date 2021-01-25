@@ -93,7 +93,7 @@ a[0]                         : 29        : input  : TTL               :         
 GND                          : 30        : gnd    :                   :         :           :                
 a[1]                         : 31        : input  : TTL               :         :           : Y              
 TCK                          : 32        : input  : TTL               :         :           : N              
-watchdog                     : 33        : output : TTL               :         :           : Y              
+wdog_led                     : 33        : output : TTL               :         :           : Y              
 a_hi[15]                     : 34        : input  : TTL               :         :           : Y              
 VCC                          : 35        : power  :                   :         :           :                
 rd_n                         : 36        : input  : TTL               :         :           : Y              
@@ -101,7 +101,7 @@ a_hi[14]                     : 37        : input  : TTL               :         
 TDO                          : 38        : output : TTL               :         :           : N              
 iorq_n                       : 39        : input  : TTL               :         :           : Y              
 wr_n                         : 40        : input  : TTL               :         :           : Y              
-uart_clk                     : 41        : output : TTL               :         :           : Y              
+uart_clk                     : 41        : output : TTL               :         :           : N              
 GND                          : 42        : gnd    :                   :         :           :                
 cpu_clk                      : 43        : input  : TTL               :         :           : Y              
 m1_n                         : 44        : input  : TTL               :         :           : Y              

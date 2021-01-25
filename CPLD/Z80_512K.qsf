@@ -87,7 +87,6 @@ set_location_assignment PIN_2 -to mreq_n
 set_location_assignment PIN_4 -to ram_cs_n
 set_location_assignment PIN_5 -to rom_cs_n
 set_location_assignment PIN_1 -to rst_n
-set_location_assignment PIN_41 -to uart_clk
 set_location_assignment PIN_40 -to wr_n
-set_location_assignment PIN_33 -to watchdog
+set_location_assignment PIN_33 -to wdog_led
 set_global_assignment -name SDC_FILE Z80_512K.sdc

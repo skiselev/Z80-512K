@@ -1,0 +1,1 @@
+create_clock -name cpu_clk -period 50 [get_ports {cpu_clk}]

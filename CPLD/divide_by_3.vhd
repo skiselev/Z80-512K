@@ -25,8 +25,8 @@ use ieee.std_logic_1164.all;
 
 entity divide_by_3 is
 	port(
-		clk		: in std_logic;		-- Clock input
-		q			: buffer std_logic	-- Clock output
+		clk				: in std_logic;		-- Clock input
+		q					: buffer std_logic	-- Clock output
 	);
 end entity divide_by_3;
  

@@ -36,6 +36,7 @@ end entity uart_freq_divider;
 
 architecture behavioral of uart_freq_divider is
 	signal clk_divide_by_3_out : std_logic;
+	signal prescale_in : std_logic;
 	signal clk_divide_by_2_in : std_logic;
 	signal clk_divide_by_2_out : std_logic;
 	signal clk_divide_by_4_in : std_logic;
@@ -67,8 +68,8 @@ architecture behavioral of uart_freq_divider is
 	end component;
 	component divide_by_3
 		port(
-			clk			: in std_logic;
-			q				: out std_logic
+		clk				: in std_logic;
+		q					: out std_logic
 		);	
 	end component;
 	-- D flip-flop with reset
@@ -90,16 +91,27 @@ begin
 			q => clk_divide_by_3_out
 		);
 
-	clk_divide_by_2_in <= clk_divide_by_3_out when divisor(4) = '1' else '1';
-	
-	-- Divide by 2
+	prescale_in <= clk_divide_by_3_out when divisor(4) = '1' else '1';
+
+	-- Prescale - divide input clock by 2
+--	clk_divide_prescale : divide_by_2 port
+--		map(
+--			carry_in => prescale_in,
+--			clk => clk_in,
+--			carry_out => clk_divide_by_2_in
+--		);
+
+	-- No prescale
+	clk_divide_by_2_in <= prescale_in;
+
+		-- Divide by 2
 	clk_divide_by_2 : divide_by_2 port
 		map(
 			carry_in => clk_divide_by_2_in,
 			clk => clk_in,
 			carry_out => clk_divide_by_2_out
 		);
-		
+
 	clk_divide_by_4_in <= clk_divide_by_2_out when divisor(0) = '1' else clk_divide_by_2_in;
 
 	-- Divide by 4
@@ -114,6 +126,7 @@ begin
 			carry_in => clk_divide_by_4_1_out,
 			clk => clk_in,
 			carry_out => clk_divide_by_4_out
+
 		);
 	
 	clk_divide_by_16_in <= clk_divide_by_4_out when divisor(1) = '1' else clk_divide_by_4_in;
@@ -195,7 +208,7 @@ begin
 			clk => clk_in,
 			carry_out => clk_divide_by_256_out
 		);
-	
+
 	clk_buffer_in <= clk_divide_by_256_out when divisor(3) = '1' else clk_divide_by_256_in;
 
 	-- Buffer flip-flop for elimitating glitches in carry out
