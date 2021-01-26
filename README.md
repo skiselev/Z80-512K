@@ -1,6 +1,22 @@
 # Z80-512K
 Z80 CPU and Memory Module
 
+## Table of Content
+* [Introduction](#introduction)
+* [Specifications](#specifications)
+* [Hardware Documentation](#hardware-documentation)
+  * [Schematic and PCB Layout](#schematic-and-pcb-layout)
+  * [Input/Output Ports](#inputoutput-ports)
+  * [Connectors](#connectors)
+  * [Bill of Materials](#bill-of-materials)
+  * [CPLD Fuse Map](#cpld-fuse-map)
+* [Release Notes](#release-notes)
+  * [Changes](#changes)
+  * [Known Issues](#known-issues)
+* [Red Tape](#red-tape)
+  * [Licensing](#licensing)
+  * [Trademarks](#trademarks)
+
 ## Introduction
 Z80-512K is an RC2014*-compatible CPU and memory module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes.
 
