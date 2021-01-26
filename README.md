@@ -194,7 +194,7 @@ Oscillator         | X1        | 7.3728 MHz, CMOS oscillator, half can       | 1
 LED                | D1        | LED indicator, 3 mm, blue                   | 1        | Mouser [710-151033BS03000](https://www.mouser.com/ProductDetail/710-151033BS03000/)
 Connector          | J1        | 2 pin header with friction lock             | 1        | Mouser [571-6404562](https://www.mouser.com/ProductDetail/571-6404562/)
 Pin Header         | J2        | 2x5 pin header, 2.54 mm pitch, vertical     | 1        | Mouser [649-77313-118-10LF](https://www.mouser.com/ProductDetail/649-77313-118-10LF/); Optional - JTAG header
-Pin Header         | J3, J4    | 2x40 pin header, 2.54 mm pitch, right angle | 1        | Mouser [517-5121TG](https://www.mouser.com/ProductDetail/517-5121TG/)
+Pin Header         | J3, J4    | 2x40 pin header, 2.54 mm pitch, right angle | 1        | Mouser [517-5121TG](https://www.mouser.com/ProductDetail/517-5121TG/), or two [649-77315-118-16LF](https://www.mouser.com/ProductDetail/649-77315-118-16LF/) and one [649-77317-104-20LF](https://www.mouser.com/ProductDetail/649-77317-104-20LF/)
 Capacitor          | C1 - C7   | 0.1 uF, 50V, MLCC, 5 mm pitch               | 7        | Mouser [594-K104K15X7RF53H5](https://www.mouser.com/ProductDetail/594-K104K15X7RF53H5/)
 Capacitor          | C7        | 47 uF, 25V, Electrolytic, 5 mm diameter, 2 mm pitch| 1 | Mouser [80-ESY476M025AC3EA](https://www.mouser.com/ProductDetail/80-ESY476M025AC3EA)
 Resistor Array     | RN1       | 4.7 kohm, bussed, 9 pin SIP                 | 1        | Mouser [652-4609X-AP1-472LF](https://www.mouser.com/ProductDetail/652-4609X-AP1-472LF/)
