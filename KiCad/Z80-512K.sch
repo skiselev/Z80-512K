@@ -5,8 +5,8 @@ $Descr A4 8268 11693 portrait
 encoding utf-8
 Sheet 1 1
 Title "Z80-512K: RC2014 Compatible CPU and Memory Module"
-Date "2021-01-15"
-Rev "1.1"
+Date "2021-01-25"
+Rev "1.2"
 Comp "Designed by Sergey Kiselev"
 Comment1 ""
 Comment2 "Licensed under CERN-OHL-S: https://cern-ohl.web.cern.ch"
@@ -412,8 +412,6 @@ Wire Wire Line
 	5350 5650 5350 6000
 Wire Wire Line
 	6100 7000 6500 7000
-Text Label 4200 6700 0    60   ~ 0
-WDOG
 Text Label 4200 7000 0    60   ~ 0
 ~RAM_CSI
 $Comp
@@ -493,7 +491,7 @@ F 3 "~" H 4000 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4600 6700 4200 6700
+	4600 6700 4500 6700
 Wire Wire Line
 	4000 6750 4000 6850
 Connection ~ 4000 6850
@@ -1698,4 +1696,48 @@ Wire Wire Line
 	1200 10800 1200 10900
 Text Notes 5250 9750 0    50   ~ 0
 JTAG components are required\nfor in-system CPLD programming.\nThey are optional otherwise
+$Comp
+L Device:LED D1
+U 1 1 60106816
+P 4500 5650
+F 0 "D1" V 4539 5532 50  0000 R CNN
+F 1 "CPU" V 4448 5532 50  0000 R CNN
+F 2 "My_Components:LED_3mm" H 4500 5650 50  0001 C CNN
+F 3 "~" H 4500 5650 50  0001 C CNN
+	1    4500 5650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4500 5400 4500 5500
+$Comp
+L power:VCC #PWR0107
+U 1 1 601691CF
+P 4500 5000
+F 0 "#PWR0107" H 4500 4850 50  0001 C CNN
+F 1 "VCC" H 4500 5150 50  0000 C CNN
+F 2 "" H 4500 5000 50  0001 C CNN
+F 3 "" H 4500 5000 50  0001 C CNN
+	1    4500 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 5000 4500 5100
+Wire Wire Line
+	4500 5800 4500 6700
+Connection ~ 4500 6700
+Wire Wire Line
+	4500 6700 4200 6700
+Text Label 4200 6700 0    60   ~ 0
+WDOG
+$Comp
+L Device:R R7
+U 1 1 601085EA
+P 4500 5250
+F 0 "R7" V 4300 5250 50  0000 C CNN
+F 1 "1k" V 4400 5250 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P2.54mm_Vertical" V 4430 5250 50  0001 C CNN
+F 3 "" H 4500 5250 50  0001 C CNN
+	1    4500 5250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
