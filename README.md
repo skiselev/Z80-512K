@@ -23,7 +23,7 @@ Z80-512K is an RC2014*-compatible module, designed to run RomWBW firmware includ
 * 512k ROM 512k RAM Module
 * Clock and Reset Module
 
-In addition to these functions, Z80-512K includes programmable CLK2 clock divider, and support for battery-backed SRAM, power failure NMI generation, and a watchdog.
+In addition to these functions, Z80-512K includes programmable CLK2 clock divider, support for battery-backed SRAM, power failure NMI generation, and a watchdog.
 
 Minimal CP/M computer system can be built using Z80-512K module, a backplane, and a serial port module, such as Z80 SIO or MC68B50 ACIA. For configurable baud rate settings, it is recommened to use serial modules that can use CLK2 as a clock, for example Steve Cousins' [SC132](https://smallcomputercentral.wordpress.com/sc132-z80-sio-0-module-rc2014/) or [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) modules.  Additional storage module is not required, since RomWBW utilizes part of ROM and SRAM for ROM and RAM disks respecitvely, but a Compact Flash module can be added for additional storage.
 
