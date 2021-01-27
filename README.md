@@ -2,8 +2,8 @@
 Z80 CPU and Memory Module
 
 ## Table of Content
-* [Introduction](#introduction)
-* [Specifications](#specifications)
+* [Overview](#overview)
+  * [Specifications](#specifications)
 * [Hardware Documentation](#hardware-documentation)
   * [Schematic and PCB Layout](#schematic-and-pcb-layout)
   * [Input/Output Ports](#inputoutput-ports)
@@ -17,15 +17,22 @@ Z80 CPU and Memory Module
   * [Licensing](#licensing)
   * [Trademarks](#trademarks)
 
-## Introduction
-Z80-512K is an RC2014*-compatible CPU and memory module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes.
+## Overview
+Z80-512K is an RC2014*-compatible module, designed to run RomWBW firmware including CP/M, ZSDOS, and various applications under these OSes. Z80-512K combines functionality of the following RC2014* modules on a single module, thus saving space on the backplane:
+* Z80 CPU Module
+* 512k ROM 512k RAM Module
+* Clock and Reset Module
+
+In addition to these functions, Z80-512K includes programmable CLK2 clock divider, and support for battery-backed SRAM, power failure NMI generation, and a watchdog.
+
+Minimal CP/M computer system can be built using Z80-512K module, a backplane, and a serial port module, such as Z80 SIO or MC68B50 ACIA. For configurable baud rate settings, it is recommened to use serial modules that can use CLK2 as a clock, for example Steve Cousins' [SC132](https://smallcomputercentral.wordpress.com/sc132-z80-sio-0-module-rc2014/) or [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) modules.  Additional storage module is not required, since RomWBW utilizes part of ROM and SRAM for ROM and RAM disks respecitvely, but a Compact Flash module can be added for additional storage.
 
 ![Z80-512K Assembled Board](images/Z80-512K-Assembled_Board.jpg)
 
-## Specifications
+### Specifications
 * Processor: Zilog* Z80 CPU (CMOS version - Z84C00)
 * Memory: 512 KiB battery-backed SRAM, 512 KiB Flash ROM, Zeta SBC V2 compatible memory pager
-* Bus: RC2014 compatible
+* Bus: RC2014* compatible
 * Microprocessor Supervisor:
   * Reset generation
   * SRAM battery backup
@@ -131,7 +138,7 @@ Pin  | Signal Name | Description      | Pin  | Signal Name | Description
 7    | NC          | No Connect       | 8    | NC          | No Connect
 9    | TDI         | Test Data Input  | 10   | GND         | Ground
 
-#### J3, J4 - RC2014 Bus
+#### J3, J4 - RC2014* Bus
 Pin   | Signal Name | Description         | Pin  | Signal Name | Description
 ----- | ----------- | --------------------------------------- | ----- | ----------- | -----------
 J3-1  | A15         | Address A15; Output                     |       |             |
