@@ -215,6 +215,10 @@ IC Socket          | U2, U3    | 32 pin DIP                                  | 2
 IC Socket          | U4        | 44 pin PLCC, through hole                   | 1        | Mouser [517-8444-11B1-RK-TP](https://www.mouser.com/ProductDetail/517-8444-11B1-RK-TP/)
 IC Socket          | U5        | 16 pin DIP                                  | 1        | Mouser [517-4816-3000-CP](https://www.mouser.com/ProductDetail/517-4816-3000-CP)
 Oscillator Socket  | X1        | 4 pin DIP, Half Can                         | 1        | Mouser [535-1108800](https://www.mouser.com/ProductDetail/535-1108800)
+Jumper             | J1        | Shunt, 2 pin 2.54 mm pitch                  | 1        | Mouser [806-SX1100-B](https://www.mouser.com/ProductDetail/806-SX1100-B/). Optional, install if battery is not used
+Connector Contacts | J1        | Connector contact                           | 2        | Mouser [571-14453361](https://www.mouser.com/ProductDetail/571-14453361/). Optional, connector for battery enclosure, install for battery-backed SRAM
+Connector Housing  | J1        | 2 pin housing, 2.54 mm pitch                | 1        | Mouser [571-13758202](https://www.mouser.com/ProductDetail/571-13758202/). Optional, connector for battery enclosure, install for battery-backed SRAM
+Battery holder     | J1        | 2xAAA battery enclosure with switch         | 1        | Mouser [12BH421/CS-GR](https://www.mouser.com/ProductDetail/12BH421-CS-GR/). Optional, battery enclosure, install for battery-backed SRAM
 
 ### CPLD Fuse Map
 
@@ -245,6 +249,11 @@ Z80-512K uses Atmel ATF1504AS or Intel*/Altera* EPM7064STC44 CPLD (U4) CPLD for 
 * Version 1.0
   * No CPLD STATUS register read back
     * Workaround: Program CPLD with the version 1.1 fuse map. Cut LED_OUT trace at D2 LED (negative terminal), connect U4 pin 36 to U1 pin 21 (RD signal) with a piece of wire. If diagnostic LED is needed, connect negative terminal of the LED to U5 pin 11 (WDOG signal)
+
+### Wishlist
+* Consider using JST connector for the battery
+  * Lower profile than TE latchable connector
+  * Ready-made battery holders with JST connectors, such as [Adafruit 4191](https://www.adafruit.com/product/4191) can be used
 
 ## Red Tape
 
