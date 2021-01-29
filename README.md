@@ -163,10 +163,10 @@ J3-19 | /M1         | Machine Cycle One; Output               | J4-3  | /RFSH   
 J3-20 | /RESET      | Reset; Output                           | J4-4  | N/C         | Not connected
 J3-21 | CLK1        | CPU Clock; Output                       | J4-5  | CLK2        | UART Clock (programmable); Output
 J3-22 | /INT        | Interrupt; Input                        | J4-6  | /BUSACK     | DMA Bus Acknowledge; Output
-J3-23 | /MREQ       | Memory Request; Output                  | J4-8  | /HALT       | Halt; Output
-J3-24 | /WR         | Write Request; Output                   | J4-9  | /WAIT       | Wait; Input
-J3-25 | /RD         | Read Request; Output                    | J4-10 | /NMI        | Non-maskable Interrupt; Input
-J3-26 | /IORQ       | Input/Output Request; Output            |       |             |
+J3-23 | /MREQ       | Memory Request; Output                  | J4-7  | /HALT       | Halt; Output
+J3-24 | /WR         | Write Request; Output                   | J4-8  | /BUSREQ     | DMA Bus Request; Input
+J3-25 | /RD         | Read Request; Output                    | J4-9  | /WAIT       | Wait; Input
+J3-26 | /IORQ       | Input/Output Request; Output            | J4-10 | /NMI        | Non-maskable Interrupt; Input
 J3-27 | D0          | Data D0; Input/Output                   |       |             |
 J3-28 | D1          | Data D1; Input/Output                   |       |             |
 J3-29 | D2          | Data D2; Input/Output                   |       |             |
