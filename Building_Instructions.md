@@ -49,3 +49,45 @@ Image                                                         | Reference | Desc
 ![Oscillator Socket - DIP8](images/Component-OSC_Socket-DIP8.jpg) | X1    | 8 pin DIP, Half Can                                 | 1
 ![Jumper](images/Component-Jumper-2.jpg)                      | J1        | Jumper/Shunt, 2 pin 2.54 mm pitch                   | 1
 ![Battery Holder - AAAx2](images/Component-Battery_Holder-AAAx2.jpg) | J1 | 2xAAA battery enclosure with switch and connector   | 1 (Optional)
+
+
+## Assembly Steps
+
+1. Gather supplies and parts
+  * Check that you have all the equipment and parts listed in the [Prerequisites](prerequisites) section above
+  * Organize your workspace. If available, use ESD-safe surface and ESD strap when working on this project
+2. Solder the components going from lower profile components to higher profile components, from smaller components to larger. Here is the recommended order:
+  * Solder RN1 and RN2 resistor arrays
+![Resistor Networks](images/Assembly_Steps-Resistor_Network.jpg]
+  * Solder C1-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
+![0.1 uF Capactiors](images/Assembly_Steps-Capacitors-100nF.jpg]
+  * Solder the D1 LED
+    * Note that the LED is __polarized__. The square pad on the board correspond to the negative (cathode) lead of the LED. The negative lead on the LED is usually marked by an indent on otherwise round LED package, or by a shorter lead. If in doubt - use the multimeter (set to diode mode) to check the polarity
+  * Solder the sockets. Start with the X1 oscillator socket, continue with DIP integrated circuits' sockets, and finally solder PLCC44 socket.
+    * Pay attention to the orientation of the sockets. The indents indicating pin 1, or the socket outline on the PCB's silk screen should match the socket orientation
+  * Form leads and solder R7, R5, and R6 resistors as shown on the picture below. If you plan to use JTAG to re-program the CPLD, also solder resistors R1-R4.
+    * Resistor R7 is 1k with 5% tolerance. It is market with brown-black-red-gold color code
+    * Resistor R5 is 10k with 1% tolerance. It is market with brown-black-black-red-brown color code
+    * Resistor R6 is 29.4k with 1% tolerance. It is market with red-white-yellow-red-brown color code
+    * Resistors R1-R4 are 10k with either 1% tolerance, marked with brown-black-black-red-brown color code, or with 5% tolerance, marked with brown-black-orange-gold color code
+    * The resistors are not polarized and can be oriented either way. Trim the leads using cutters
+  * Solder trimmer resistor RV1. Trim the leads using cutters
+  * Solder J1 connector. Pay attention to the orientation of this connector. The connector latch should match the drawing on the PCB's silk screen. Refer to the picture below of the correct orientation
+  * Solder C8 capacitor. Note that this is a __polarized__ electrolytic capacitor and it needs to be oriented properly. Make sure that the negative lead of the capacitor (marked on the package) matches the white colored area on the PCB.
+  * Solder RC2014* headers (J3 and J4):
+    * If two 1x16 and one 2x10 headers are used, cut 3 pins from one of the 1x16 headers to make a 1x13 header. Solder 2x10 header first, making sure that its pins are parallel to the baord. Next solder 1x16 and 1x13 headers, making sure that they align properly with 2x10 header, and the pins form one nice straight line.
+    * If 2x40 header used, using pliers gently remove extra pins - 16 pins from upper row on the left side (connector pins facing toward you), 14 pins from upper row on the right side, and one pin from the lower row on the right side. Refer to the picture below
+  * If you plan to use JTAG to re-program the CPLD, solder J2 2x5 header
+3. Check your soldering work. Make sure all pins of all components are soldered properly. If desired, clean the flux using isopropyl alcohol, cotton swabs. You might want to scrub the board lightly with a used toothbrush to remove the flux
+4. Insert the integrated circuts to the sockets
+  * Prior to insering DIP integrated circuits to the sockets board, bend their leads slightly, so they point 90 degrees downward. Put the IC on the side and gently push it down to bend the leads. Repeat on the other side of the IC
+  * Double check that you're placing the integrated circuit in the right socket, check the IC orientation. The index notch on the IC should match the notch on the socket and the drawing on the PCB's silkscreen
+  * To insert the ATF1504AS CPLD integrated circuit in PLCC44 package, place it on the top of the socket, double check the orientation of the integrated circuit, and firmly push it down
+5. Test the module
+  * Plug the module into an RC2014* compatible backplane
+  * Plug a supported serial module, such as Z80 SIO or MC68B50 ACIA. If using Steve Cousins' [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) module, make sure it is configured in "Compatibility Mode" and the address is set to 0x80
+  * Double check that the modules are installed in the correct orientation, and pin 1 on the modules match that of the backplane.
+  * Connect the serial console cable, such as FTDI USB to RS232 to the serial module. Launch terminal emulation software, and configure it for 115200bps, 8-bit, no parity, one stop bit operation.
+  * Apply the power. The indicator LED on the Z80-512K module should blink briefly, and then light up. The RomWBW prompt should appear on the terminal.
+
+__Congratulations! Enjoy your Z80-512K Module!__
