@@ -62,22 +62,22 @@ Image                                                         | Reference | Desc
 
 * Solder RN1 and RN2 resistor arrays
 
-![Resistor networks](images/Assembly_Steps-01-Resistor_Networks.jpg]
+![Resistor networks](images/Assembly_Steps-01-Resistor_Networks.jpg)
 
 * Solder C1-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
 
-![0.1 uF capactiors](images/Assembly_Steps-02-100nF_Capacitors.jpg]
+![0.1 uF capactiors](images/Assembly_Steps-02-100nF_Capacitors.jpg)
 
 * Solder the D1 LED
   * Note that the LED is __polarized__. The square pad on the board correspond to the negative (cathode) lead of the LED. The negative lead on the LED is usually marked by an indent on otherwise round LED package, or by a shorter lead. If in doubt - use the multimeter (set to diode mode) to check the polarity
     
-![LED](images/Assembly_Steps-03-LED.jpg]
+![LED](images/Assembly_Steps-03-LED.jpg)
 
 * Solder the sockets. Start with the X1 oscillator socket, continue with DIP integrated circuits' sockets, and finally solder PLCC44 socket.
   * Pay attention to the orientation of the sockets. The indents indicating pin 1, or the socket outline on the PCB's silk screen should match the socket orientation
 
-![Sockets orientation](images/Assembly_Steps-04-Sockets.jpg]
-![Sockets installed](images/Assembly_Steps-05-Sockets.jpg]
+![Sockets orientation](images/Assembly_Steps-04-Sockets.jpg)
+![Sockets installed](images/Assembly_Steps-05-Sockets.jpg)
 
 * Form leads and solder R7, R5, and R6 resistors as shown on the picture below. If you plan to use JTAG to re-program the CPLD, also solder resistors R1-R4.
   * Resistor R7 is 1k with 5% tolerance. It is market with brown-black-red-gold color code
