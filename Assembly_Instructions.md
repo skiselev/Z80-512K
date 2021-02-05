@@ -58,7 +58,9 @@ Image                                                         | Reference | Desc
 * Check that you have all the equipment and parts listed in the [Prerequisites](prerequisites) section above
 * Organize your workspace. If available, use ESD-safe surface and ESD strap when working on this project
 
-### 2. Solder the components going from lower profile components to higher profile components, from smaller components to larger. Here is the recommended order:
+### 2. Solder the components
+
+Solder the components going from lower profile components to higher profile components, from smaller components to larger. Here is the recommended order:
 
 * Solder RN1 and RN2 resistor arrays
 
