@@ -22,7 +22,7 @@ The table below shows images of the components included in the kit. The up to da
 
 Image                                                              | Reference | Description                                         | Quantity
 ------------------------------------------------------------------ | --------- | --------------------------------------------------- | --------
-images/![Z80-512K PCB v1.2](images/Component-Z80-512K-1.2-PCB.jpg) | PCB       | Z80-512K PCB - Version 1.2                          | 1
+![Z80-512K PCB v1.2](images/Component-Z80-512K-1.2-PCB.jpg) | PCB       | Z80-512K PCB - Version 1.2                          | 1
 Integrated Circuit | U1        | Z84C0010PEG - Z80 CPU, CMOS, 40 pin DIP             | 1
 Integrated Circuit | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP          | 1
 Integrated Circuit | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP                 | 1
