@@ -42,10 +42,10 @@ Image                                                         | Reference | Desc
 ![Resistor - 29.4k](images/Component-Res-29.4k.jpg)           | R6        | Resistor, 29.4 kohm, 0.25 W, 1% tolerance, axial    | 1
 ![Resistor - 1k](images/Component-Res-1k.jpg)                 | R7        | Resistor, 1 kohm, 0.25 W, axial                     | 1
 ![Trimmer Resistor - 2k](images/Component-RTrim-2k.jpg)       | RV1       | Trimmer Resistor, 2 kohm, through hole              | 1
-![IC Socket - DIP40](images/Component-Socket-DIP40.jpg)       | U1        | Intergrated circuit socket, 40 pin DIP              | 1
-![IC Socket - DIP32](images/Component-Socket-DIP32.jpg)       | U2, U3    | Intergrated circuit socket, 32 pin DIP              | 2
-![IC Socket - PLCC44](images/Component-Socket-PLCC44.jpg)     | U4        | Intergrated circuit socket, 44 pin PLCC, through hole | 1
-![IC Socket - DIP16](images/Component-Socket-DIP16.jpg)       | U5        | Intergrated circuit socket, 16 pin DIP              | 1
+![IC Socket - DIP40](images/Component-Socket-DIP40.jpg)       | U1        | Integrated circuit socket, 40 pin DIP               | 1
+![IC Socket - DIP32](images/Component-Socket-DIP32.jpg)       | U2, U3    | Integrated circuit socket, 32 pin DIP               | 2
+![IC Socket - PLCC44](images/Component-Socket-PLCC44.jpg)     | U4        | Integrated circuit socket, 44 pin PLCC, through hole | 1
+![IC Socket - DIP16](images/Component-Socket-DIP16.jpg)       | U5        | Integrated circuit socket, 16 pin DIP               | 1
 ![Oscillator Socket - DIP8](images/Component-OSC_Socket-DIP8.jpg) | X1    | 8 pin DIP, Half Can                                 | 1
 ![Jumper](images/Component-Jumper-2.jpg)                      | J1        | Jumper/Shunt, 2 pin 2.54 mm pitch                   | 1
 ![Battery Holder - AAAx2](images/Component-Battery_Holder-AAAx2.jpg) | J1 | 2xAAA battery enclosure with switch and connector   | 1 (Optional)
@@ -68,10 +68,9 @@ Solder the components going from lower profile components to higher profile comp
 
 * Solder C1-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
 
-![0.1 uF capactiors](images/Assembly_Steps-02-100nF_Capacitors.jpg)
+![0.1 uF capacitors](images/Assembly_Steps-02-100nF_Capacitors.jpg)
 
-* Solder the D1 LED
-  * Note that the LED is __polarized__. The square pad on the board correspond to the negative (cathode) lead of the LED. The negative lead on the LED is usually marked by an indent on otherwise round LED package, or by a shorter lead. If in doubt - use the multimeter (set to diode mode) to check the polarity
+* Solder the D1 LED. Note that the LED is __polarized__. The square pad on the board correspond to the negative (cathode) lead of the LED. The negative lead on the LED is usually marked by an indent on otherwise round LED package, or by a shorter lead. If in doubt - use the multimeter (set to diode mode) to check the polarity
     
 ![LED](images/Assembly_Steps-03-LED.jpg)
 
@@ -103,7 +102,7 @@ Solder the components going from lower profile components to higher profile comp
 ![Electrolytic capacitor](images/Assembly_Steps-09-Electrolytic_Capacitor.jpg)
 
 * Solder RC2014* headers (J3 and J4):
-  * If two 1x16 and one 2x10 headers are used, cut 3 pins from one of the 1x16 headers to make a 1x13 header. Solder 2x10 header first, making sure that its pins are parallel to the baord. Next solder 1x16 and 1x13 headers, making sure that they align properly with 2x10 header, and the pins form one nice straight line.
+  * If two 1x16 and one 2x10 headers are used, cut 3 pins from one of the 1x16 headers to make a 1x13 header. Solder 2x10 header first, making sure that its pins are parallel to the board. Next solder 1x16 and 1x13 headers, making sure that they align properly with 2x10 header, and the pins form one nice straight line.
   * If 2x40 header used, using pliers gently remove extra pins - 16 pins from upper row on the left side (connector pins facing toward you), 14 pins from upper row on the right side, and one pin from the lower row on the right side. Refer to the picture below
   
 ![RC2014 bus connector](images/Assembly_Steps-10-Bus_Connector.jpg)
@@ -117,8 +116,8 @@ Solder the components going from lower profile components to higher profile comp
 * Make sure all pins of all components are soldered properly
 * If desired, clean the flux using isopropyl alcohol, cotton swabs. You might want to scrub the board lightly with a used toothbrush to remove the flux
 
-### 4. Insert the integrated circuts to the sockets
-* Prior to insering DIP integrated circuits to the sockets board, bend their leads slightly, so they point 90 degrees downward. Put the IC on the side and gently push it down to bend the leads. Repeat on the other side of the IC
+### 4. Insert the integrated circuits to the sockets
+* Prior to inserting DIP integrated circuits to the sockets board, bend their leads slightly, so they point 90 degrees downward. Put the IC on the side and gently push it down to bend the leads. Repeat on the other side of the IC
 * Double check that you're placing the integrated circuit in the right socket, check the IC orientation. The index notch on the IC should match the notch on the socket and the drawing on the PCB's silkscreen
 * To insert the ATF1504AS CPLD integrated circuit in PLCC44 package, place it on the top of the socket, double check the orientation of the integrated circuit, and firmly push it down. It should click into the socket
 
