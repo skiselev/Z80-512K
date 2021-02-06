@@ -4,7 +4,7 @@ Z80 CPU and Memory Module
 ## Table of Content
 * [Overview](#overview)
   * [Specifications](#specifications)
-* [Assembly Instructions(#assembly-instructions)
+* [Assembly Instructions](#assembly-instructions)
 * [Hardware Documentation](#hardware-documentation)
   * [Schematic and PCB Layout](#schematic-and-pcb-layout)
   * [Input/Output Ports](#inputoutput-ports)
