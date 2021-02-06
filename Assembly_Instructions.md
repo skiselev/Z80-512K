@@ -23,7 +23,7 @@ The table below shows the images of the components included in the kit. The up t
 Image                                                         | Reference | Description                                         | Quantity
 ------------------------------------------------------------- | --------- | --------------------------------------------------- | --------
 ![PCB - Z80-512K v1.2](images/Component-Z80-512K-1.2-PCB.jpg) | PCB       | Z80-512K PCB - Version 1.2                          | 1
-![CPU - Z84C0010PEG](images/Component-Z84C0010PEG.jpg|width=160) | U1        | Z84C0010PEG - Z80 CPU, CMOS, 40 pin DIP             | 1
+<img src="images/Component-Z84C0010PEG.jpg" alt="CPU - Z84C0010PEG" width="160" height="120"> | U1        | Z84C0010PEG - Z80 CPU, CMOS, 40 pin DIP             | 1
 ![Flash ROM - SST39SF040](images/Component-SST39SF040.jpg)    | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP          | 1
 ![SRAM - AS6C4008](images/Component-AS6C4008.jpg)             | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP                 | 1
 ![CPLD - ATF1504AS](images/Component-ATF1504AS.jpg)           | U4        | ATF1504AS - CPLD, 64 macrocells, 44 pin PLCC        | 1
