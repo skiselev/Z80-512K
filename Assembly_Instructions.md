@@ -60,7 +60,7 @@ Image                                                                           
 
 Solder the components going from lower profile components to higher profile components, from smaller components to larger. Here is the recommended order:
 
-* Solder RN1 and RN2 resistor arrays
+* Solder RN1 and RN2 resistor arrays. Make sure that resistor arrays are oriented correctly. The first pin of the resistor array is marked with a printed dot, and the first pad on the board has a square shape
 
 ![Resistor networks](images/Assembly_Steps-01-Resistor_Networks.jpg)
 
