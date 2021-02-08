@@ -1473,8 +1473,6 @@ F 3 "~" H 7500 10250 50  0001 C CNN
 $EndComp
 Text Notes 3500 7800 0    50   ~ 0
 Connect 3V to J1 for battery backed-up SRAM.\nPlace a jumper over J1 if battery backup is not required.
-Text Notes 3500 4700 0    50   ~ 0
-R5, R6, and RV1 are required only for power-fail NMI generation.\nThey are optional otherwise.
 Wire Wire Line
 	2800 10800 3200 10800
 Connection ~ 2800 10800
