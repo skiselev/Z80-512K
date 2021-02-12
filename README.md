@@ -194,6 +194,8 @@ J3-39 | USR3        | User Pin 3; Not connected               |       |         
 
 [Z80-512K project on OSH Park](https://oshpark.com/shared_projects/GxG6zfVK) - View and order the PCB.
 
+Z80-512K project on Tindie: [Complete kit](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-kit/); [Z80-512K PCB, a preprogrammed CPLD and optionally a Flash ROM](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-pcb-and-cpld/).
+
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
 PCB                |           | Z80-512K PCB - Version 1.2                  | 1        | Refer to the [RetroBrew Computers Board Inventory](https://www.retrobrewcomputers.org/doku.php?id=boardinventory#minimal_8085_z80_single_board_computer) page for ordering information, or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
