@@ -135,3 +135,9 @@ Solder the components going from lower profile components to higher profile comp
   * Apply the power. The indicator LED on the Z80-512K module should blink briefly, and then light up. The RomWBW prompt should appear on the terminal.
 
 __Congratulations! Enjoy your Z80-512K Module!__
+
+A compact CP/M computer system consisting of [Z80-512K](https://github.com/skiselev/Z80-512K) module, [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) SIO/2 module, RC2014 [Compact Flash](https://rc2014.co.uk/modules/compact-flash-module/) Module, and [SC116](https://smallcomputercentral.wordpress.com/sc116-3-slot-backplane-rc2014/) 3-Slot Backplane:
+
+![Z80-512K - Complete Computer with Serial and CF Card](images/Z80-512K-1.2-CPM-System-800px.jpg)
+
+
