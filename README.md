@@ -198,7 +198,7 @@ Z80-512K project on Tindie: [Complete kit](https://www.tindie.com/products/weird
 
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
-PCB                |           | Z80-512K PCB - Version 1.2                  | 1        | Refer to the [RetroBrew Computers Board Inventory](https://www.retrobrewcomputers.org/doku.php?id=boardinventory#minimal_8085_z80_single_board_computer) page for ordering information, or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
+PCB                |           | Z80-512K PCB - Version 1.2                  | 1        | Buy from my Tindie store: [Complete kit](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-kit/); [Z80-512K PCB, a preprogrammed CPLD and optionally a Flash ROM](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-pcb-and-cpld/), or order from a PCB manufacturer of your choice using provided Gerber or KiCad files
 Integrated Circuit | U1        | Z84C00xxPEG - Z80 CPU, CMOS, 40 pin DIP     | 1        | Mouser [692-Z84C0010PEG](https://www.mouser.com/ProductDetail/692-Z84C0010PEG/)
 Integrated Circuit | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP  | 1        | Mouser [804-39SF0407CPHE](https://www.mouser.com/ProductDetail/804-39SF0407CPHE/)
 Integrated Circuit | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP         | 1        | Mouser [913-AS6C4008-55PCN](https://www.mouser.com/ProductDetail/913-AS6C4008-55PCN/)
