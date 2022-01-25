@@ -53,7 +53,7 @@ Image                                                                           
 
 ### 1. Gather supplies and parts
 
-* Check that you have all the equipment and parts listed in the [Prerequisites](prerequisites) section above
+* Check that you have all the equipment and parts listed in the [Prerequisites](#prerequisites) section above
 * Organize your workspace. If available, use ESD-safe surface and ESD strap when working on this project
 
 ### 2. Solder the components
@@ -121,7 +121,7 @@ Solder the components going from lower profile components to higher profile comp
 
 ![Assembled board](images/Z80-512K-1.2-Assembled_Board-800px.jpg)
 
-### 5. Connect place jumper over J1 or connect a battery
+### 5. Place a jumper over J1 or connect a battery
 
 * If SRAM battery backup is not needed, place a jumper on J1 connector
 * If SRAM battery is desired, install two AAA batteries in the battery holder, and connect battery holder to J1 connector
