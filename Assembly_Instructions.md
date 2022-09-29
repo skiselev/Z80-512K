@@ -89,6 +89,8 @@ Solder the components going from lower profile components to higher profile comp
 
 * Solder trimmer resistor RV1. Trim the leads using cutters
 
+*Note:* The Z80-512K can generate NMI interrupts to the CPU when power failure is detected. The RV1 trimmer resistor is used to fine tune the power failure threshold voltage. It is normally safe to set it to a middle position. If using the NMI on power failure feature, the RV1 can be adjusted by setting the board power supply to the desired power failure voltage (for example, 4.5 V), and adjusting the resistor until the /PFO output (pin 10) of U5 goes low.
+
 ![Trimmer resistor](images/Assembly_Steps-07-Trimmer_Resistor.jpg)
 
 * Solder J1 battery connector. Pay attention to the orientation of this connector. The connector latch should match the drawing on the PCB's silk screen. Refer to the picture below of the correct orientation
