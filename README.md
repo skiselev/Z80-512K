@@ -147,51 +147,52 @@ Pin  | Signal Name | Description      | Pin  | Signal Name | Description
 9    | TDI         | Test Data Input  | 10   | GND         | Ground
 
 #### J3, J4 - RC2014* Bus
-Pin   | Signal Name | Description         | Pin  | Signal Name | Description
+Pin   | Signal Name | Description                             | Pin   | Signal Name | Description
 ----- | ----------- | --------------------------------------- | ----- | ----------- | -----------
-J3-1  | A15         | Address A15; Output                     |       |             |
-J3-2  | A14         | Address A14; Output                     |       |             |
-J3-3  | A13         | Address A13; Output                     |       |             |
-J3-4  | A12         | Address A12; Output                     |       |             |
-J3-5  | A11         | Address A11; Output                     |       |             |
-J3-6  | A10         | Address A10; Output                     |       |             |
-J3-7  | A9          | Address A9; Output                      |       |             |
-J3-8  | A8          | Address A8; Output                      |       |             |
-J3-9  | A7          | Address A7; Output                      |       |             |
-J3-10 | A6          | Address A6; Output                      |       |             |
-J3-11 | A5          | Address A5; Output                      |       |             |
-J3-12 | A4          | Address A4; Output                      |       |             |
-J3-13 | A3          | Address A3; Output                      |       |             |
-J3-14 | A2          | Address A2; Output                      |       |             |
-J3-15 | A1          | Address A1; Output                      |       |             |
-J3-16 | A0          | Address A0; Output                      |       |             |
-J3-17 | GND         | Ground                                  | J4-1  | GND         | Ground
-J3-18 | VCC         | Power Supply - +5V                      | J4-2  | VCC         | Power Supply - +5V
-J3-19 | /M1         | Machine Cycle One; Output               | J4-3  | /RFSH       | DRAM refresh; Output
-J3-20 | /RESET      | Reset; Output                           | J4-4  | N/C         | Not connected
-J3-21 | CLK1        | CPU Clock; Output                       | J4-5  | CLK2        | UART Clock (programmable); Output
-J3-22 | /INT        | Interrupt; Input                        | J4-6  | /BUSACK     | DMA Bus Acknowledge; Output
-J3-23 | /MREQ       | Memory Request; Output                  | J4-7  | /HALT       | Halt; Output
-J3-24 | /WR         | Write Request; Output                   | J4-8  | /BUSREQ     | DMA Bus Request; Input
-J3-25 | /RD         | Read Request; Output                    | J4-9  | /WAIT       | Wait; Input
-J3-26 | /IORQ       | Input/Output Request; Output            | J4-10 | /NMI        | Non-maskable Interrupt; Input
-J3-27 | D0          | Data D0; Input/Output                   |       |             |
-J3-28 | D1          | Data D1; Input/Output                   |       |             |
-J3-29 | D2          | Data D2; Input/Output                   |       |             |
-J3-30 | D3          | Data D3; Input/Output                   |       |             |
-J3-31 | D4          | Data D4; Input/Output                   |       |             |
-J3-32 | D5          | Data D5; Input/Output                   |       |             |
-J3-33 | D6          | Data D6; Input/Output                   |       |             |
-J3-34 | D7          | Data D7; Input/Output                   |       |             |
-J3-35 | TXDA        | Channel A, Transmit Data; Not Connected |       |             | 
-J3-36 | RXDA        | Channel A, Receive Data; Not Connected  |       |             | 
-J3-37 | USR1        | User Pin 1; Not connected               |       |             |
-J3-38 | USR2        | User Pin 2; Not connected               |       |             |
-J3-39 | USR3        | User Pin 3; Not connected               |       |             |
+J3-1  | A15         | Address A15; Output                     | J3-41 | p41         | Reserved; Not connected
+J3-2  | A14         | Address A14; Output                     | J3-42 | /BAI        | Bus Acknowledge In; Not connected
+J3-3  | A13         | Address A13; Output                     | J3-43 | /BAO        | Bus Acknowledge Out; Not connected
+J3-4  | A12         | Address A12; Output                     | J3-44 | p44         | Reserved; Not connected
+J3-5  | A11         | Address A11; Output                     | J3-45 | p45         | Reserved; Not connected
+J3-6  | A10         | Address A10; Output                     | J3-46 | p46         | Reserved; Not connected
+J3-7  | A9          | Address A9; Output                      | J3-47 | p47         | Reserved; Not connected
+J3-8  | A8          | Address A8; Output                      | J3-48 | p48         | Reserved; Not connected
+J3-9  | A7          | Address A7; Output                      | J3-49 | A23         | Address A23; Input; Not connected
+J3-10 | A6          | Address A6; Output                      | J3-50 | A22         | Address A22; Input; Not connected
+J3-11 | A5          | Address A5; Output                      | J3-51 | A21         | Address A21; Input; Not connected
+J3-12 | A4          | Address A4; Output                      | J3-52 | A20         | Address A20; Input; Not connected
+J3-13 | A3          | Address A3; Output                      | J3-53 | A19         | Address A19; Input; Not connected
+J3-14 | A2          | Address A2; Output                      | J3-54 | A18         | Address A18; Input; Not connected
+J3-15 | A1          | Address A1; Output                      | J3-55 | A17         | Address A17; Input; Not connected
+J3-16 | A0          | Address A0; Output                      | J3-56 | A16         | Address A16; Input; Not connected
+J3-17 | GND         | Ground                                  | J3-57 | GND         | Ground
+J3-18 | VCC         | Power Supply - +5V                      | J3-58 | VCC         | Power Supply - +5V
+J3-19 | /M1         | Machine Cycle One; Output               | J3-59 | /RFSH       | DRAM refresh; Output
+J3-20 | /RESET      | Reset; Output                           | J3-60 | PAGE         | Page ROM/RAM input; Not connected
+J3-21 | CLK1        | CPU Clock; Output                       | J3-61 | CLK2        | UART Clock (programmable); Output
+J3-22 | /INT        | Interrupt; Input                        | J3-62 | /BUSACK     | DMA Bus Acknowledge; Output
+J3-23 | /MREQ       | Memory Request; Output                  | J3-63 | /HALT       | Halt; Output
+J3-24 | /WR         | Write Request; Output                   | J3-64 | /BUSREQ     | DMA Bus Request; Input
+J3-25 | /RD         | Read Request; Output                    | J3-65 | /WAIT       | Wait; Input
+J3-26 | /IORQ       | Input/Output Request; Output            | J3-66 | /NMI        | Non-maskable Interrupt; Input
+J3-27 | D0          | Data D0; Input/Output                   | J3-67 | D8          | Data D8; Input/Output; Not connected
+J3-28 | D1          | Data D1; Input/Output                   | J3-68 | D9          | Data D9; Input/Output; Not connected
+J3-29 | D2          | Data D2; Input/Output                   | J3-69 | D10         | Data D10; Input/Output; Not connected
+J3-30 | D3          | Data D3; Input/Output                   | J3-70 | D11         | Data D11; Input/Output; Not connected
+J3-31 | D4          | Data D4; Input/Output                   | J3-71 | D12         | Data D12; Input/Output; Not connected
+J3-32 | D5          | Data D5; Input/Output                   | J3-72 | D13         | Data D13; Input/Output; Not connected
+J3-33 | D6          | Data D6; Input/Output                   | J3-73 | D14         | Data D14; Input/Output; Not connected
+J3-34 | D7          | Data D7; Input/Output                   | J3-74 | D15         | Data D15; Input/Output; Not connected
+J3-35 | TX          | Channel 1, Transmit Data; Not Connected | J3-75 | TX2         | Channel 2, Transmit Data; Not Connected
+J3-36 | RX          | Channel 1, Receive Data; Not Connected  | J3-76 | RX2         | Channel 2, Receive Data; Not Connected
+J3-37 | /IRQ1       | Interrupt Request 1; Not connected      | J3-77 | /IRQ2       | Interrupt Request 2; Not connected
+J3-38 | IEI         | Interrupt Enable In; Not connected      | J3-78 | p78         | Reserved; Not connected
+J3-39 | IEO         | Interrupt Enable Out; Not connected     | J3-79 | p79         | Reserved; Not connected
+J3-40 | USER4       | User Pin 4; Not connected               | J3-80 | USER8       | User Pin 8; Not connected
 
 ### Bill of Materials
 
-#### Version 1.2
+#### Version 2.0
 
 [Z80-512K project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=53dc7b1011) - View and order all components except of the PCB.
 
