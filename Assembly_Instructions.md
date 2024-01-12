@@ -21,7 +21,7 @@ The table below shows the images of the components included in the kit. The up t
 
 Image                                                                                           | Reference | Description                                          | Quantity
 ----------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------- | --------
-<img src="images/Z80-512K-1.2-Preview.png" alt="PCB - Z80-512K v1.2" height="120">              | PCB       | Z80-512K PCB - Version 1.2                           | 1
+<img src="images/Z80-512K-2.0-PCB-1024px.jpg" alt="PCB - Z80-512K v2.0" height="120">              | PCB       | Z80-512K PCB - Version 2.0                           | 1
 <img src="images/Component-Z84C0010PEG.jpg" alt="CPU - Z84C0010PEG" height="120">               | U1        | Z84C0010PEG - Z80 CPU, CMOS, 40 pin DIP              | 1
 <img src="images/Component-SST39SF040.jpg" alt="Flash ROM - SST39SF040" height="120">           | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP           | 1
 <img src="images/Component-AS6C4008.jpg" alt="SRAM - AS6C4008" height="120">                    | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP                  | 1
@@ -29,12 +29,11 @@ Image                                                                           
 <img src="images/Component-ADM693A.jpg" alt="Supervisor - ADM693A" height="120">                | U5        | ADM693A - Microprocessor Supervisory Circuit         | 1
 <img src="images/Component-OSC.jpg" alt="Oscillator - 7.3728 MHz" height="120">                 | X1        | 7.3728 MHz, CMOS oscillator, half can                | 1
 <img src="images/Component-LED-Blue.jpg" alt="LED - 3mm - Blue" height="120">                   | D1        | LED indicator, 3 mm, blue                            | 1
-<img src="images/Component-Conn-Latch-2.jpg" alt="Friction Lock Connector" height="120">        | J1        | 2 pin header with friction lock                      | 1
+<img src="images/Component-Conn-Latch-2.jpg" alt="Friction Lock Connector" height="120">        | J1        | 2 pin header with friction lock, right angle (update photo)       | 1
 <img src="images/Component-Header-2x5.jpg" alt="Pin Header 2x5" height="120">                   | J2        | 2x5 pin header, 2.54 mm pitch, vertical              | 1
-<img src="images/Component-Header-1x16-RA.jpg" alt="Pin Header 1x16 Right Angle" height="120">  | J3        | 1x16 pin header, 2.54 mm pitch, right angle          | 2
-<img src="images/Component-Header-RA-2x10.jpg" alt="Pin Header 2x10 Right Angle" height="120">  | J3, J4    | 2x10 pin header, 2.54 mm pitch, right angle          | 1
-<img src="images/Component-Cap-100nF.jpg" alt="Ceramic Capacitors - 0.1uF" height="120">        | C1 - C7   | Capacitor, 0.1 uF, 50V, MLCC, 5 mm pitch             | 7
-<img src="images/Component-Cap-4.7uF.jpg" alt="Electrolytic Capacitor - 4.7uF" height="120">    | C7        | Capacitor, 47 uF, 25V, Electrolytic, 5 mm diameter, 2 mm pitch | 1
+<img src="images/Component-Header-RA-2x40.jpg" alt="Pin Header 2x40 Right Angle" height="120">  | J3        | 2x40 pin header, 2.54 mm pitch, right angle          | 1
+<img src="images/Component-Cap-100nF.jpg" alt="Ceramic Capacitor - 10uF" height="120">          | C1        | Capacitor, 10 uF, 25V, MLCC, 5 mm pitch (update photo) | 1
+<img src="images/Component-Cap-100nF.jpg" alt="Ceramic Capacitors - 0.1uF" height="120">        | C2 - C7   | Capacitor, 0.1 uF, 50V, MLCC, 5 mm pitch             | 6
 <img src="images/Component-RN8-4.7k.jpg" alt="Resistor Network - 8x4.7k" height="120">          | RN1       | Resistor Network, 4.7 kohm, bussed, 9 pin SIP        | 1
 <img src="images/Component-RN5-4.7k.jpg" alt="Resistor Network - 5x4.7k" height="120">          | RN2       | Resistor Network, 4.7 kohm, bussed, 6 pin SIP        | 1
 <img src="images/Component-Res-10k.jpg" alt="Resistor - 10k" height="120">                      | R1 - R5   | Resistor, 10 kohm, 0.25 W, 1% tolerance, axial       | 5
@@ -101,11 +100,7 @@ Solder the components going from lower profile components to higher profile comp
 
 ![Electrolytic capacitor](images/Assembly_Steps-09-Electrolytic_Capacitor.jpg)
 
-* Solder RC2014* headers (J3 and J4):
-  * If two 1x16 and one 2x10 headers are used, cut 3 pins from one of the 1x16 headers to make a 1x13 header. Solder 2x10 header first, making sure that its pins are parallel to the board. Next solder 1x16 and 1x13 headers, making sure that they align properly with 2x10 header, and the pins form one nice straight line.
-  * If 2x40 header used, using pliers gently remove extra pins - 16 pins from upper row on the left side (connector pins facing toward you), 14 pins from upper row on the right side, and one pin from the lower row on the right side. Refer to the picture below
-  
-![RC2014 bus connector](images/Assembly_Steps-10-Bus_Connector.jpg)
+* Solder RCBus header J3
   
 * If you plan to use JTAG to re-program the CPLD, solder J2 2x5 header
 
@@ -130,16 +125,16 @@ Solder the components going from lower profile components to higher profile comp
 * **Important**: Do not leave J1 unconnected. The board might not boot if J1 is left floating
 
 ### 6. Test the module
-  * Plug the module into an RC2014* compatible backplane
-  * Plug a supported serial module, such as Z80 SIO or MC68B50 ACIA. If using Steve Cousins' [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) module, make sure it is configured in "Compatibility Mode" and the address is set to 0x80
+  * Plug the module into an RCBus compatible backplane
+  * Plug a supported serial module, such as Steve Cousins' [[SC716 – RCBus Z80 SIO/2 Serial Module](https://smallcomputercentral.com/sc716-rcbus-z80-sio-2-serial-module/), [SC725 – RCBus Serial and Timer Module](https://smallcomputercentral.com/sc725-rcbus-serial-and-timer-module/), or [SC705 – RCBus Serial ACIA Module](https://smallcomputercentral.com/sc705-rcbus-serial-acia/). If using the [SC716](https://smallcomputercentral.com/sc716-rcbus-z80-sio-2-serial-module/) module, set the address to 0x80 using JP1, and set JP1 and JP2 to 1-2 position, if you would like to use the Z80-512K clock generator for the SIO bitrate.
   * Double check that the modules are installed in the correct orientation, and pin 1 on the modules match that of the backplane.
   * Connect the serial console cable, such as FTDI USB to RS232 to the serial module. Launch terminal emulation software, and configure it for 115200bps, 8-bit, no parity, one stop bit operation.
   * Apply the power. The indicator LED on the Z80-512K module should blink briefly, and then light up. The RomWBW prompt should appear on the terminal.
 
 __Congratulations! Enjoy your Z80-512K Module!__
 
-A compact CP/M computer system consisting of [Z80-512K](https://github.com/skiselev/Z80-512K) module, [SC104](https://smallcomputercentral.wordpress.com/sc104-z80-sio-2-module-rc2014/) SIO/2 module, RC2014 [Compact Flash](https://rc2014.co.uk/modules/compact-flash-module/) Module, and [SC116](https://smallcomputercentral.wordpress.com/sc116-3-slot-backplane-rc2014/) 3-Slot Backplane:
+A CP/M computer system consisting of [Z80-512K module](https://github.com/skiselev/Z80-512K), [Flock V2 Floppy Disk Controller and Real Time Clock module](https://github.com/skiselev/flock-v2), [SC725 – RCBus Serial and Timer Module](https://smallcomputercentral.com/sc725-rcbus-serial-and-timer-module/), and [SC701 – RCBUS Backplane](https://smallcomputercentral.com/sc701-rcbus-backplane/):
 
-![Z80-512K - Complete Computer with Serial and CF Card](images/Z80-512K-1.2-CPM-System-800px.jpg)
+![Z80-512K - Complete Computer with Serial and Floppy](images/Z80-512K-2.0-CPM-System-1024px.jpg)
 
 
