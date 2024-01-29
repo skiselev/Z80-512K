@@ -21,32 +21,32 @@ The table below shows the images of the components included in the kit. The up t
 
 Image                                                                                           | Reference | Description                                          | Quantity
 ----------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------- | --------
-<img src="images/Z80-512K-2.0-PCB-1024px.jpg" alt="PCB - Z80-512K v2.0" height="120">              | PCB       | Z80-512K PCB - Version 2.0                           | 1
+<img src="images/Z80-512K-2.0-PCB-1024px.jpg" alt="PCB - Z80-512K v2.0" height="120">           | PCB       | Z80-512K PCB - Version 2.0                           | 1
 <img src="images/Component-Z84C0010PEG.jpg" alt="CPU - Z84C0010PEG" height="120">               | U1        | Z84C0010PEG - Z80 CPU, CMOS, 40 pin DIP              | 1
 <img src="images/Component-SST39SF040.jpg" alt="Flash ROM - SST39SF040" height="120">           | U2        | SST39SF040 - 512 KiB Flash ROM, 32 pin DIP           | 1
 <img src="images/Component-AS6C4008.jpg" alt="SRAM - AS6C4008" height="120">                    | U3        | AS6C4008 - 512 KiB SRAM, 32 pin DIP                  | 1
 <img src="images/Component-ATF1504AS.jpg" alt="CPLD - ATF1504AS" height="120">                  | U4        | ATF1504AS - CPLD, 64 macrocells, 44 pin PLCC         | 1
-<img src="images/Component-ADM693A.jpg" alt="Supervisor - ADM693A" height="120">                | U5        | ADM693A - Microprocessor Supervisory Circuit         | 1
+<img src="images/Component-ADM693A.jpg" alt="Supervisor - ADM693A" height="120">                | U5        | ADM693A - Microprocessor Supervisory Circuit         | 1 (optional)
 <img src="images/Component-OSC.jpg" alt="Oscillator - 7.3728 MHz" height="120">                 | X1        | 7.3728 MHz, CMOS oscillator, half can                | 1
-<img src="images/Component-LED-Blue.jpg" alt="LED - 3mm - Blue" height="120">                   | D1        | LED indicator, 3 mm, blue                            | 1
-<img src="images/Component-Conn-Latch-2.jpg" alt="Friction Lock Connector" height="120">        | J1        | 2 pin header with friction lock, right angle (update photo)       | 1
-<img src="images/Component-Header-2x5.jpg" alt="Pin Header 2x5" height="120">                   | J2        | 2x5 pin header, 2.54 mm pitch, vertical              | 1
-<img src="images/Component-Header-RA-2x40.jpg" alt="Pin Header 2x40 Right Angle" height="120">  | J3        | 2x40 pin header, 2.54 mm pitch, right angle          | 1
-<img src="images/Component-Cap-100nF.jpg" alt="Ceramic Capacitor - 10uF" height="120">          | C1        | Capacitor, 10 uF, 25V, MLCC, 5 mm pitch (update photo) | 1
+<img src="images/Component-LED-Blue.jpg" alt="LED - 3mm - Blue" height="120">                   | D1        | LED indicator, 3 mm, blue                            | 1 (optional)
+<img src="images/Component-Conn-Latch-2-RA.jpg" alt="Friction Lock Connector" height="120">     | J1        | 2 pin header with friction lock, right angle         | 1
+<img src="images/Component-Header-2x5.jpg" alt="Pin Header 2x5" height="120">                   | J2        | 2x5 pin header, 2.54 mm pitch, vertical              | 1 (optional)
+<img src="images/Component-Header-2x40-RA.jpg" alt="Pin Header 2x40 Right Angle" height="120">  | J3        | 2x40 pin header, 2.54 mm pitch, right angle          | 1
+<img src="images/Component-Cap-10uF.jpg" alt="Ceramic Capacitor - 10uF" height="120">           | C1        | Capacitor, 10 uF, 25V, MLCC, 5 mm pitch              | 1
 <img src="images/Component-Cap-100nF.jpg" alt="Ceramic Capacitors - 0.1uF" height="120">        | C2 - C7   | Capacitor, 0.1 uF, 50V, MLCC, 5 mm pitch             | 6
 <img src="images/Component-RN8-4.7k.jpg" alt="Resistor Network - 8x4.7k" height="120">          | RN1       | Resistor Network, 4.7 kohm, bussed, 9 pin SIP        | 1
 <img src="images/Component-RN5-4.7k.jpg" alt="Resistor Network - 5x4.7k" height="120">          | RN2       | Resistor Network, 4.7 kohm, bussed, 6 pin SIP        | 1
-<img src="images/Component-Res-10k.jpg" alt="Resistor - 10k" height="120">                      | R1 - R5   | Resistor, 10 kohm, 0.25 W, 1% tolerance, axial       | 5
-<img src="images/Component-Res-29.4k.jpg" alt="Resistor - 29.4k" height="120">                  | R6        | Resistor, 29.4 kohm, 0.25 W, 1% tolerance, axial     | 1
+<img src="images/Component-Res-10k.jpg" alt="Resistor - 10k" height="120">                      | R1 - R5   | Resistor, 10 kohm, 0.25 W, 1% tolerance, axial       | 5 (optional)
+<img src="images/Component-Res-29.4k.jpg" alt="Resistor - 29.4k" height="120">                  | R6        | Resistor, 29.4 kohm, 0.25 W, 1% tolerance, axial     | 1 (optional)
 <img src="images/Component-Res-1k.jpg" alt="Resistor - 1k" height="120">                        | R7        | Resistor, 1 kohm, 0.25 W, axial                      | 1
-<img src="images/Component-RTrim-2k.jpg" alt="Trimmer Resistor - 2k" height="120">              | RV1       | Trimmer Resistor, 2 kohm, through hole               | 1
+<img src="images/Component-RTrim-2k.jpg" alt="Trimmer Resistor - 2k" height="120">              | RV1       | Trimmer Resistor, 2 kohm, through hole               | 1 (optional)
 <img src="images/Component-Socket-DIP40.jpg" alt="IC Socket - DIP40" height="120">              | U1        | Integrated circuit socket, 40 pin DIP                | 1
 <img src="images/Component-Socket-DIP32.jpg" alt="IC Socket - DIP32" height="120">              | U2, U3    | Integrated circuit socket, 32 pin DIP                | 2
 <img src="images/Component-Socket-PLCC44.jpg" alt="IC Socket - PLCC44" height="120">            | U4        | Integrated circuit socket, 44 pin PLCC, through hole | 1
-<img src="images/Component-Socket-DIP16.jpg" alt="IC Socket - DIP16" height="120">              | U5        | Integrated circuit socket, 16 pin DIP                | 1
+<img src="images/Component-Socket-DIP16.jpg" alt="IC Socket - DIP16" height="120">              | U5        | Integrated circuit socket, 16 pin DIP                | 1 (optional)
 <img src="images/Component-OSC_Socket-DIP8.jpg" alt="Oscillator Socket - DIP8" height="120">    | X1        | 8 pin DIP, Half Can                                  | 1
-<img src="images/Component-Jumper-2.jpg" alt="Jumper" height="120">                             | J1        | Jumper/Shunt, 2 pin 2.54 mm pitch                    | 1
-<img src="images/Component-Battery_Holder-AAAx2.jpg" alt="Battery Holder - AAAx2" height="120"> | J1        | 2xAAA battery enclosure with switch and connector    | 1 (Optional)
+<img src="images/Component-Jumper-2.jpg" alt="Jumper" height="120">                             | J1        | Jumper/Shunt, 2 pin 2.54 mm pitch                    | 1 (optional)
+<img src="images/Component-Battery_Holder-AAAx2.jpg" alt="Battery Holder - AAAx2" height="120"> | J1        | 2xAAA battery enclosure with switch and connector    | 1 (optional)
 
 ## Assembly Steps
 
@@ -63,7 +63,7 @@ Solder the components going from lower profile components to higher profile comp
 
 ![Resistor networks](images/Assembly_Steps-01-Resistor_Networks.jpg)
 
-* Solder C1-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
+* Solder C1 10 uF and C2-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
 
 ![0.1 uF capacitors](images/Assembly_Steps-02-100nF_Capacitors.jpg)
 
@@ -116,7 +116,7 @@ Solder the components going from lower profile components to higher profile comp
 * Double check that you're placing the integrated circuit in the right socket, check the IC orientation. The index notch on the IC should match the notch on the socket and the drawing on the PCB's silkscreen
 * To insert the ATF1504AS CPLD integrated circuit in PLCC44 package, place it on the top of the socket, double check the orientation of the integrated circuit, and firmly push it down. It should click into the socket
 
-![Assembled board](images/Z80-512K-1.2-Assembled_Board-800px.jpg)
+![Assembled board](images/Z80-512K-2.0-Assembled_Board-1024px.jpg)
 
 ### 5. Place a jumper over J1 or connect a battery
 
