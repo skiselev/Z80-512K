@@ -194,9 +194,9 @@ J3-40 | USER4       | User Pin 4; Not connected               | J3-80 | USER8   
 
 #### Version 2.0
 
-[Z80-512K project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=53dc7b1011) - View and order all components except of the PCB.
-
-[Z80-512K project on OSH Park](https://oshpark.com/shared_projects/GxG6zfVK) - View and order the PCB.
+[Z80-512K V2 project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=a4dc766274) - View and order all components except of the PCB, CPU supervisor (optional), and JTAG header (optional).
+[Z80-512K V2 - CPU Supervisor project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=bce8da5b24) - All components for CPU supervisor (optional).
+[Z80-512K V2 - JTAG Header project on Mouser.com](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=c965bd23ef) - All components for JTAG header (optional).
 
 Z80-512K project on Tindie: [Complete kit](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-kit/); [Z80-512K PCB, a preprogrammed CPLD and optionally a Flash ROM](https://www.tindie.com/products/weird/z80-512k-rc2014-compatible-module-pcb-and-cpld/).
 
