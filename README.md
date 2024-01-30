@@ -199,7 +199,9 @@ Mouser projects - all components except of the PCB:
 * [Z80-512K V2 - CPU Supervisor project](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=bce8da5b24) - Components for CPU supervisor (optional).
 * [Z80-512K V2 - JTAG Header project](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=c965bd23ef) - Components for JTAG header (optional).
 
-Z80-512K project on Tindie: [Complete kit](https://www.tindie.com/products/weird/z80-512k-rcbus-module-kit/); [Z80-512K PCB, a preprogrammed CPLD and optionally a Flash ROM](https://www.tindie.com/products/weird/z80-512k-rcbus-module-pcb-and-cpld/).
+Z80-512K project on Tindie:
+* [Complete kit](https://www.tindie.com/products/weird/z80-512k-rcbus-module-kit/).
+* [Z80-512K PCB, a preprogrammed CPLD and optionally a Flash ROM](https://www.tindie.com/products/weird/z80-512k-rcbus-module-pcb-and-cpld/).
 
 Component type     | Reference | Description                                 | Quantity | Possible sources and notes 
 ------------------ | --------- | ------------------------------------------- | -------- | --------------------------
