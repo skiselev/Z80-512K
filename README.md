@@ -270,6 +270,7 @@ Z80-512K uses Atmel ATF1504AS or Intel*/Altera* EPM7064STC44 CPLD (U4) CPLD for 
 * Consider using JST connector for the battery
   * Lower profile than TE latchable connector
   * Ready-made battery holders with JST connectors, such as [Adafruit 4191](https://www.adafruit.com/product/4191) can be used
+* Add RCBUs logo
 
 ## Red Tape
 
