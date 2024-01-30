@@ -61,50 +61,52 @@ Solder the components going from lower profile components to higher profile comp
 
 * Solder RN1 and RN2 resistor arrays. Make sure that resistor arrays are oriented correctly. The first pin of the resistor array is marked with a printed dot, and the first pad on the board has a square shape
 
-![Resistor networks](images/Assembly_Steps-01-Resistor_Networks.jpg)
+![Resistor networks](images/Assembly_Steps-01-Resistor_Networks-2.0.jpg)
 
 * Solder C1 10 uF and C2-C7 0.1 uF capacitors. Note that these are non-polarized ceramic capacitors, so they can be oriented either way. Trim the leads using cutters
 
-![0.1 uF capacitors](images/Assembly_Steps-02-100nF_Capacitors.jpg)
+![Capacitors](images/Assembly_Steps-02-Capacitors-2.0.jpg)
+
+* If the U5 ADM693AZ CPU supervisor is not used (the kit’s default), install two wire jumpers in the U5 footprint as indicated on the board. Use cut capacitors' or resistors’ leads to make the jumpers.
+
+![Wire jumpers](images/Assembly_Steps-03-Jumpers-2.0.jpg)
 
 * Solder the D1 LED. Note that the LED is __polarized__. The square pad on the board correspond to the negative (cathode) lead of the LED. The negative lead on the LED is usually marked by an indent on otherwise round LED package, or by a shorter lead. If in doubt - use the multimeter (set to diode mode) to check the polarity
     
-![LED](images/Assembly_Steps-03-LED.jpg)
+![LED](images/Assembly_Steps-04-LED-2.0.jpg)
 
 * Solder the sockets. Start with the X1 oscillator socket, continue with DIP integrated circuits' sockets, and finally solder PLCC44 socket.
   * Pay attention to the orientation of the sockets. The indents indicating pin 1, or the socket outline on the PCB's silk screen should match the socket orientation
+  * If the U5 ADM693AZ CPU supervisor is used, also solder the U5 DIP-16 socket
 
-![Sockets orientation](images/Assembly_Steps-04-Sockets.jpg)
-![Sockets installed](images/Assembly_Steps-05-Sockets.jpg)
+![Sockets](images/Assembly_Steps-05-Sockets-2.0.jpg)
 
-* Form leads and solder R7, R5, and R6 resistors as shown on the picture below. If you plan to use JTAG to re-program the CPLD, also solder resistors R1-R4.
-  * Resistor R7 is 1k with 5% tolerance. It is market with brown-black-red-gold color code
-  * Resistor R5 is 10k with 1% tolerance. It is market with brown-black-black-red-brown color code
-  * Resistor R6 is 29.4k with 1% tolerance. It is market with red-white-yellow-red-brown color code
-  * Resistors R1-R4 are 10k with either 1% tolerance, marked with brown-black-black-red-brown color code, or with 5% tolerance, marked with brown-black-orange-gold color code
-  * The resistors are not polarized and can be oriented either way. Trim the leads using cutters
+* Form the leads and solder the R7 resistor as shown on the picture below.
+  * (Optional) If the U5 ADM693AZ CPU supervisor is used, also solder resistors R5 and R6.
+  * (Optional) If the JTAG header is desired, also solder resistors R1-R4.
+  * Resistor R7 is 1k with either 1% or %5 tolerance.
+    * The 1k 1% resistor is marked with brown-black-black-brown-brown color code.
+    * The 1k 5% resistor is marked with brown-black-red-gold color code.
+  * Resistor R5 is 10k with 1% tolerance. It is marked with brown-black-black-red-brown color code.
+  * Resistor R6 is 29.4k with 1% tolerance. It is marked with red-white-yellow-red-brown color code.
+  * Resistors R1-R4 are 10k with either 1% or 5% tolerance.
+    * 10k 1% resistors are marked with brown-black-black-red-brown color code.
+    * 10k 5% resistors are marked with brown-black-orange-gold color code.
+  * The resistors are not polarized and can be oriented either way. Trim the leads using cutters.
 
-![Resistors](images/Assembly_Steps-06-Resistors.jpg)
+![Resistors](images/Assembly_Steps-06-Resistors-2.0.jpg)
 
-* Solder trimmer resistor RV1. Trim the leads using cutters
+* Solder RCBus header J3
+
+![RCBus Header](images/Assembly_Steps-07-RCBus-2.0.jpg)
+
+* (Optional) If the U5 ADM693AZ CPU supervisor is used, solder trimmer resistor RV1. Trim the leads using cutters
 
 *Note:* The Z80-512K can generate NMI interrupts to the CPU when power failure is detected. The RV1 trimmer resistor is used to fine tune the power failure threshold voltage. It is normally safe to set it to a middle position. If using the NMI on power failure feature, the RV1 can be adjusted by setting the board power supply to the desired power failure voltage (for example, 4.5 V), and adjusting the resistor until the /PFO output (pin 10) of U5 goes low.
 
-![Trimmer resistor](images/Assembly_Steps-07-Trimmer_Resistor.jpg)
-
-* Solder J1 battery connector. Pay attention to the orientation of this connector. The connector latch should match the drawing on the PCB's silk screen. Refer to the picture below of the correct orientation
-
-![Battery connector](images/Assembly_Steps-08-Battery_Connector.jpg)
-
-* Solder C8 capacitor. Note that this is a __polarized__ electrolytic capacitor and it needs to be oriented properly. Make sure that the negative lead of the capacitor (marked on the package) matches the white colored area on the PCB.
-
-![Electrolytic capacitor](images/Assembly_Steps-09-Electrolytic_Capacitor.jpg)
-
-* Solder RCBus header J3
+* (Optional) If the U5 ADM693AZ CPU supervisor is used, solder J1 battery connector. Pay attention to the orientation of this connector. The connector latch should match the drawing on the PCB's silk screen.
   
-* If you plan to use JTAG to re-program the CPLD, solder J2 2x5 header
-
-![JTAG components](images/Assembly_Steps-12-JTAG_Components.jpg)
+* (Optional) If the JTAG header is desired, for example, if you plan to use JTAG to re-program the CPLD, solder J2 2x5 header
 
 ### 3. Check your soldering work
 
@@ -119,6 +121,8 @@ Solder the components going from lower profile components to higher profile comp
 ![Assembled board](images/Z80-512K-2.0-Assembled_Board-1024px.jpg)
 
 ### 5. Place a jumper over J1 or connect a battery
+
+This step is optional, and required only if the U5 ADM693AZ CPU supervisor is used.
 
 * If SRAM battery backup is not needed, place a jumper on J1 connector
 * If SRAM battery is desired, install two AAA batteries in the battery holder, and connect battery holder to J1 connector
