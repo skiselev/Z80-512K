@@ -1,5 +1,5 @@
 # Z80-512K
-Z80 CPU, 512 KiB SRAM, and 512 KiB Flash ROM for RCBus systems
+Z80 CPU, 512 KiB SRAM, and 512 KiB Flash ROM module for RCBus systems
 
 ## Table of Content
 * [Overview](#overview)
