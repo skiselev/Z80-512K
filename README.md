@@ -106,9 +106,9 @@ Port | Bit # | Function                                         | Value
 0x78 | 7-6   | Not implemented                                  | Should be set to 0
 0x79 | 5-0   | MPGSEL_1 - Page number for bank #1 0x4000-0x7FFF | 0-31 - Page number
 0x79 | 7-6   | Not implemented                                  | Should be set to 0
-0x7A | 5-0   | MPGSEL_3 - Page number for bank #2 0x8000-0xBFFF | 0-31 - Page number
+0x7A | 5-0   | MPGSEL_2 - Page number for bank #2 0x8000-0xBFFF | 0-31 - Page number
 0x7A | 7-6   | Not implemented                                  | Should be set to 0
-0x7B | 5-0   | MPGSEL_4 - Page number for bank #3 0xC000-0xFFFF | 0-31 - Page number
+0x7B | 5-0   | MPGSEL_2 - Page number for bank #3 0xC000-0xFFFF | 0-31 - Page number
 0x7B | 7-6   | Not implemented                                  | Should be set to 0
 
 #### 0x7Ch - MPGENA - Enable Memory Paging (Write-only)
